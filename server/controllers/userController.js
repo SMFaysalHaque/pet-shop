@@ -1,6 +1,9 @@
 import { hash } from "bcryptjs";
 
+import { sendVerificationMail } from "../util/mailer";
+import { generateRandomString } from "../util/common";
 import { findUserByQuery, insertUser } from "../database/interfaces/userInterface";
+import { insertToken } from "../database/interfaces/tokenInterface";
 
 const registerUser = async (req, res) => {
   try {
@@ -33,15 +36,34 @@ const registerUser = async (req, res) => {
       ...(presentAddress ? { presentAddress } : {}),
     };
 
-    const insertionResult = await insertUser(user);
-    if (insertionResult.status === "OK") {
-      // TODO: add nodemailer
+    const userInsertionResult = await insertUser(user);
+    if (userInsertionResult.status === "ERROR") {
+      return res.status(400).send({
+        message: "User registration failed.",
+      });
+    }
+    const verificationToken = generateRandomString(64);
+    try {
+      sendVerificationMail(email, verificationToken);
+    } catch (err) {
+      console.error(err);
+      return res.status(500).send({
+        message: "Verification mail sending failed. Try again later.",
+      });
+    }
+    idOfInsertedUser = userInsertionResult.data._userId;
+    const token = {
+      _userId: idOfInsertedUser,
+      token: verificationToken,
+    };
+    const tokenInsertionResult = await insertToken(token);
+    if (tokenInsertionResult.status === "OK") {
       return res.status(200).send({
         message: "User registration request has been submitted. Check email for verification link.",
       });
     } else {
       return res.status(400).send({
-        message: insertionResult.message,
+        message: "User registration failed.",
       });
     }
   } catch (e) {

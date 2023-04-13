@@ -12,6 +12,7 @@ const insertUser = async (userObject) => {
       };
     } else {
       return {
+        data,
         status: "OK",
         message: "User insertion successful",
       };
