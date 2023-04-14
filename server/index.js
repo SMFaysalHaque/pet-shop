@@ -2,6 +2,9 @@ const path = require("path");
 const viewPath = path.join(__dirname, "./config/.env.dev").replace(/\\/g, "/");
 require("dotenv").config({ path: viewPath });
 
+//connect to database
+let { mongoose } = require("./database/mongoose");
+
 const express = require("express");
 const cors = require("cors");
 
