@@ -1,14 +1,12 @@
-const { sendVerificationMail } = require("../util/mailer");
-const { generateRandomString, hashPassword } = require("../util/common");
+const { hashPassword } = require("../util/common");
 const { findUserByQuery, insertUser } = require("../database/interfaces/userInterface");
-const { insertToken } = require("../database/interfaces/tokenInterface");
 
 const registerUser = async (req, res) => {
   try {
     const { firstName, lastName, email, password, phone, presentAddress } = req.body;
     validateRegisterUserPayload(firstName, lastName, email, password);
-    // stop registration if email is already registered and verified
-    if (await isEmailVerified(email)) {
+    // stop registration if email is already registered
+    if (await isEmailRegistered(email)) {
       return res.status(400).send({
         message: "User already registered",
       });
@@ -26,29 +24,9 @@ const registerUser = async (req, res) => {
     };
 
     const userInsertionResult = await insertUser(user);
-    if (userInsertionResult.status === "ERROR") {
-      return res.status(400).send({
-        message: "User registration failed.",
-      });
-    }
-    const verificationToken = generateRandomString(64);
-    try {
-      sendVerificationMail(email, verificationToken);
-    } catch (err) {
-      console.error(err);
-      return res.status(500).send({
-        message: "Verification mail sending failed. Try again later.",
-      });
-    }
-    idOfInsertedUser = userInsertionResult.data._id;
-    const token = {
-      _userId: idOfInsertedUser,
-      token: verificationToken,
-    };
-    const tokenInsertionResult = await insertToken(token);
-    if (tokenInsertionResult.status === "OK") {
+    if (userInsertionResult.status === "OK") {
       return res.status(200).send({
-        message: "User registration request has been submitted. Check email for verification link.",
+        message: "User registration successful.",
       });
     } else {
       return res.status(400).send({
@@ -73,10 +51,10 @@ function validateRegisterUserPayload(firstName, lastName, email, password) {
   return;
 }
 
-async function isEmailVerified(email) {
+async function isEmailRegistered(email) {
   const queryData = { email: email };
   const userQueryResult = await findUserByQuery(queryData, {});
-  return userQueryResult.data?.isVerified;
+  return !!userQueryResult.data;
 }
 
 module.exports = {

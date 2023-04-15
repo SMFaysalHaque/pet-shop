@@ -29,10 +29,6 @@ const userSchema = new Schema(
       required: true,
       minLength: 6,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
     phone: {
       type: String,
       minLength: 11,

@@ -19,7 +19,10 @@ const insertUser = async (userObject) => {
     }
   } catch (e) {
     console.error("DB exception", e);
-    throw new Error();
+    return {
+      status: "EXCEPTION",
+      message: e.message,
+    };
   }
 };
 
@@ -40,7 +43,11 @@ const findUserByQuery = async (query, option) => {
     }
   } catch (e) {
     console.error("DB exception", e);
-    throw new Error();
+    return {
+      data: null,
+      message: e.message,
+      status: "EXCEPTION",
+    };
   }
 };
 
