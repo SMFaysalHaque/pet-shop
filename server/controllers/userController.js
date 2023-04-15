@@ -1,9 +1,7 @@
-const { hash } = require("bcryptjs");
-
-const sendVerificationMail = require("../util/mailer");
-const generateRandomString = require("../util/common");
+const { sendVerificationMail } = require("../util/mailer");
+const { generateRandomString, hashPassword } = require("../util/common");
 const { findUserByQuery, insertUser } = require("../database/interfaces/userInterface");
-const insertToken = require("../database/interfaces/tokenInterface");
+const { insertToken } = require("../database/interfaces/tokenInterface");
 
 const registerUser = async (req, res) => {
   try {
@@ -15,17 +13,8 @@ const registerUser = async (req, res) => {
         message: "User already registered",
       });
     }
-    // hash password
-    let hashedPassword;
-    hash(password, 10, (err, hash) => {
-      if (err) {
-        return res.status(500).json({
-          error: err,
-        });
-      } else {
-        hashedPassword = hash;
-      }
-    });
+
+    const hashedPassword = await hashPassword(password);
 
     const user = {
       firstName,
@@ -51,7 +40,7 @@ const registerUser = async (req, res) => {
         message: "Verification mail sending failed. Try again later.",
       });
     }
-    idOfInsertedUser = userInsertionResult.data._userId;
+    idOfInsertedUser = userInsertionResult.data._id;
     const token = {
       _userId: idOfInsertedUser,
       token: verificationToken,

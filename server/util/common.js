@@ -1,3 +1,5 @@
+const { hash } = require("bcryptjs");
+
 const generateRandomString = (length) => {
   let result = "";
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -10,4 +12,16 @@ const generateRandomString = (length) => {
   return result;
 };
 
-module.exports = { generateRandomString };
+const hashPassword = (password) => {
+  return new Promise((resolve, reject) => {
+    hash(password, 10, (err, hash) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(hash);
+      }
+    });
+  });
+};
+
+module.exports = { generateRandomString, hashPassword };
