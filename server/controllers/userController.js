@@ -1,3 +1,6 @@
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
 const { hashPassword } = require("../util/common");
 const { findUserByQuery, insertUser } = require("../database/interfaces/userInterface");
 
@@ -6,7 +9,8 @@ const registerUser = async (req, res) => {
     const { firstName, lastName, email, password, phone, presentAddress } = req.body;
     validateRegisterUserPayload(firstName, lastName, email, password);
     // stop registration if email is already registered
-    if (await isEmailRegistered(email)) {
+    const userQueryResult = await findUser(email);
+    if (!!userQueryResult) {
       return res.status(400).send({
         message: "User already registered",
       });
@@ -41,6 +45,59 @@ const registerUser = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+    if (!email || !password) {
+      return res.status(400).send({
+        message: "Input Field error",
+      });
+    }
+
+    const userQueryResult = await findUser(email);
+    if (!userQueryResult) {
+      return res.status(400).send({
+        message: "User not found.",
+      });
+    }
+    const user = userQueryResult;
+
+    bcrypt.compare(password, user.password, (err, result) => {
+      if (err) {
+        return res.status(401).json({
+          message: "Authentication failed. Please check email and password and try again.",
+        });
+      }
+      if (result) {
+        const userInfo = {
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          ...(user.phone ? { phone: user.phone } : {}),
+          ...(user.presentAddress ? { presentAddress: user.presentAddress } : {}),
+        };
+        const token = jwt.sign(userInfo, process.env.JWT_KEY, {
+          expiresIn: parseInt(process.env.TOKEN_LIFE),
+        });
+
+        return res.status(200).json({
+          message: "Authentication successful",
+          token: token,
+        });
+      }
+      res.status(401).json({
+        message: "Authentication failed. Please check email and password and try again.",
+      });
+    });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).send({
+      message: "Internal Server Error",
+    });
+  }
+};
+
 function validateRegisterUserPayload(firstName, lastName, email, password) {
   if (!firstName || !lastName || !email || !password) {
     error = new Error("Input Field missing");
@@ -51,12 +108,13 @@ function validateRegisterUserPayload(firstName, lastName, email, password) {
   return;
 }
 
-async function isEmailRegistered(email) {
+async function findUser(email) {
   const queryData = { email: email };
   const userQueryResult = await findUserByQuery(queryData, {});
-  return !!userQueryResult.data;
+  return userQueryResult.data;
 }
 
 module.exports = {
   registerUser,
+  login,
 };
