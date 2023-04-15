@@ -1,4 +1,4 @@
-import { Token } from "../models/token";
+const { Token } = require("../models/token");
 
 const insertToken = async (tokenObject) => {
   try {
@@ -22,6 +22,6 @@ const insertToken = async (tokenObject) => {
   }
 };
 
-export default {
+module.exports = {
   insertToken,
 };

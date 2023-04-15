@@ -1,6 +1,6 @@
-import { Error } from "mongoose";
-import urlRegexSafe from "url-regex-safe";
-import { isEmail, validatePhone } from "validator";
+const { Error } = require("mongoose");
+const urlRegexSafe = require("url-regex-safe");
+const { isEmail, isMobilePhone } = require("validator");
 
 const validateURL = (url) => {
   if (url === "") return;
@@ -22,12 +22,12 @@ const validatePhone = (phone) => {
 };
 
 const validateMinMax = (object) => {
-    if (object.min > object.max) {
-        throw new Error('Invalid Min Max Value');
-    }
-}
+  if (object.min > object.max) {
+    throw new Error("Invalid Min Max Value");
+  }
+};
 
-export default {
+module.exports = {
   validateEmail,
   validatePhone,
   validateURL,

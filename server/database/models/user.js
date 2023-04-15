@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-import { validateEmail } from "../validate";
+const { validateEmail, validatePhone } = require("../validate");
 
 const Schema = mongoose.Schema;
 
@@ -52,6 +52,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-const User = new model("User", userSchema);
+const User = new mongoose.model("User", userSchema);
 
-export default { User };
+module.exports = { User };

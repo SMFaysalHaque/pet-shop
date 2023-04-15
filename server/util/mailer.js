@@ -1,7 +1,7 @@
 // library documentation: nodemailer[dot]com/about/
 
 "use strict";
-import { createTestAccount, createTransport, getTestMessageUrl } from "nodemailer";
+const { createTestAccount, createTransport, getTestMessageUrl } = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
 async function mailer(email, verificationToken) {
@@ -38,6 +38,8 @@ async function mailer(email, verificationToken) {
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-export const sendVerificationMail = (email, token) => {
+const sendVerificationMail = (email, token) => {
   mailer(email, `${email}#${token}`);
 };
+
+module.exports = { sendVerificationMail };

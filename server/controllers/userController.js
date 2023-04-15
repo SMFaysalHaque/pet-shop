@@ -1,16 +1,16 @@
-import { hash } from "bcryptjs";
+const { hash } = require("bcryptjs");
 
-import { sendVerificationMail } from "../util/mailer";
-import { generateRandomString } from "../util/common";
-import { findUserByQuery, insertUser } from "../database/interfaces/userInterface";
-import { insertToken } from "../database/interfaces/tokenInterface";
+const sendVerificationMail = require("../util/mailer");
+const generateRandomString = require("../util/common");
+const { findUserByQuery, insertUser } = require("../database/interfaces/userInterface");
+const insertToken = require("../database/interfaces/tokenInterface");
 
 const registerUser = async (req, res) => {
   try {
     const { firstName, lastName, email, password, phone, presentAddress } = req.body;
     validateRegisterUserPayload(firstName, lastName, email, password);
     // stop registration if email is already registered and verified
-    if (isEmailVerified(email)) {
+    if (await isEmailVerified(email)) {
       return res.status(400).send({
         message: "User already registered",
       });
@@ -90,6 +90,6 @@ async function isEmailVerified(email) {
   return userQueryResult.data?.isVerified;
 }
 
-export default {
+module.exports = {
   registerUser,
 };

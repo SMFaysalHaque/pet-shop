@@ -1,4 +1,4 @@
-import { User } from "../models/user";
+const { User } = require("../models/user");
 
 const insertUser = async (userObject) => {
   try {
@@ -44,7 +44,7 @@ const findUserByQuery = async (query, option) => {
   }
 };
 
-export default {
+module.exports = {
   insertUser,
   findUserByQuery,
 };

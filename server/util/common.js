@@ -9,3 +9,5 @@ const generateRandomString = (length) => {
   }
   return result;
 };
+
+module.exports = { generateRandomString };
