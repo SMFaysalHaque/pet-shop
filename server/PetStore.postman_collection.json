@@ -1,0 +1,783 @@
+{
+	"info": {
+		"_postman_id": "38e510a0-4cb3-4ff1-a0aa-e948bca8bd02",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10825626"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"test-user-2\",\n    \"lastName\": \"last-2\",\n    \"email\": \"test2@gmail.com\",\n    \"password\": \"badpass\",\n    \"presentAddress\": \"test-address-2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"test-user-1\",\n    \"lastName\": \"last-1\",\n    \"email\": \"test1@gmail.com\",\n    \"password\": \"badpass\",\n    \"phone\": \"01700000001\",\n    \"presentAddress\": \"test-address-1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-sqW3x2AZ63dZOHCNssN2U8klNcE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Apr 2023 23:13:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registration successful.\"\n}"
+						},
+						{
+							"name": "Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"test-user-1\",\n    \"lastName\": \"last-1\",\n    \"email\": \"test1@gmail.com\",\n\n    \"phone\": \"01700000001\",\n    \"presentAddress\": \"test-address-1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-M6Hij+1M9G0WEKMk9BG90El0SqE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Apr 2023 23:30:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Input Field missing\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User  Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@gmail.com\",\n    \"password\": \"badpass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test1@gmail.com\",\n    \"password\": \"badpass\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "349"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15d-khNHNR4mfzHXPc+6R1kUbbP0qFo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Apr 2023 23:18:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6InRlc3QtdXNlci0xIiwibGFzdE5hbWUiOiJsYXN0LTEiLCJwaG9uZSI6IjAxNzAwMDAwMDAxIiwicHJlc2VudEFkZHJlc3MiOiJ0ZXN0LWFkZHJlc3MtMSIsImlhdCI6MTY4MTYwMDcxMSwiZXhwIjoxNjg0MTkyNzExfQ.iaBlUHDsW_gt-fJobi5v4D5ol2MVlUiNaqLCu41LxW4\"\n}"
+						},
+						{
+							"name": "Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test1@gmail.com\",\n    \"password\": \"badpass1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-2q+P69v3X9WUJ8FJXkoD1HUyV08\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Apr 2023 23:17:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Authentication failed. Please check email and password and try again.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141f-JCmXAJ8rHscY83VAbtIqrnBhBoc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 16:27:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"644012f4b4568f5abf5b831b\",\n            \"name\": \"Drools Absolute Calcium Syrup Dog Supplement (300ml)\",\n            \"description\": \"Drools Absolute Calcium Dog Supplement Syrup is for all breeds of dogs. It is an optimum Calcium and Phosphorus ratio that helps in maintaining a healthy skeletal system of dogs. It also helps in supporting the healthy joints in them. This Calcium and Phosphorus formula also helps in making teeth stronger. This Dog Supplement helps in eradicating the Calcium and Phosphorus deficiency in Dogs. Optimum Calcium-Phosphorous Ratio– Drools Absolute Calcium Dog Supplement Syrup has an optimum calcium-phosphorus ratio which helps in eradicating this deficiency. Supports Healthy Joints-This Dog Supplement contains calcium that helps in supporting healthy joints. Stronger Teeth-This Calcium-Phosphorous formula helps in maintaining dental health and promotes stronger teeth. Healthy Skeletal System-This Dog Supplement helps in maintain the healthy skeletal system in all breed of dogs.\",\n            \"price\": 1000,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"644013b4b4568f5abf5b831c\",\n            \"name\": \"Drools Absolute Calcium Tablet Dog Supplement (110 Tablets)\",\n            \"description\": \"Drools Absolute Immunity Tablet -Dog Supplement is a formulation available in the form of chewable tablets especially designed for pets. It is enriched with the goodness of calcium that helps to promote joint health and stronger teeth.\",\n            \"price\": 1000,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"6440144ab4568f5abf5b831d\",\n            \"name\": \"Bonnie Dog Can – Chicken Chunks in Gravy (400g) \",\n            \"description\": \"INGREDIENTS: Meat and Animal Derivatives (Chicken 4% min.), Cereals, Minerals, Vegetable by products, sugar\\n\\nFEEDING RECOMMENDATION: See table below. The individual necessity depends on factors like age, breed or activity. Fresh drinking water should always be available. Serve at room temperature.\",\n            \"price\": 155,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"644014cfb4568f5abf5b831e\",\n            \"name\": \"Bonnie Dog Can – Beef Chunks in Gravy (400g)\",\n            \"description\": \"INGREDIENTS: Meat and Animal Derivatives (Beef 4% min.), Cereals, Minerals, Vegetable by products, Sugar.\\n\\nFEEDING RECOMMENDATION: See table below. The individual necessity depends on factors like age, breed or activity. Fresh drinking water should always be available. Serve at room temperature.\",\n            \"price\": 150,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"64401544b4568f5abf5b831f\",\n            \"name\": \"Spectrum Starter32 Kitten Food – Chicken Formula (400g)\",\n            \"description\": \"SPECTRUM Kitten Starter32 An especially formulated complete and balanced ultra-premium food to meet the nutritional requirements of kittens (4 to 16 weeks of age) and queens during gestation and lactation.\\n\\nThe nutritional concept of SPECTRUM Kitten Starter32 is focused to counter stress, digestive sensitivity and the immune gap in kittens at weaning and during post weaning period.\\n\\nCOMPOSITION: Dehydrated chicken protein, chicken fat, rice,  maize, whey powder, hydrolysed bagasse fibre, dried antarctic krill (euphausia superba), hydrolysed chicken liver, brewer’s yeast, whole egg powder, yucca schidigera, L-carnitine, fructo-oligosaccharides (300ppm), rosmarinus sp.- curcuma sp.- vitis sp.- citrus sp.- eugenia sp. (300ppm).\\n\\nNUTRITIVE ADDITIONS: Lodine (E2): 1,5 mg/kg, Copperr (E4): 45 mg/kg, Manganese (E5): 20 mg/kg, Zinc (E6):180 mg/kg, Selenium (E8) 0,9 mg/kg Preservative – Antioxidant.\\n\\nFOR KITTEN ( AGED FROM 4 TO 16 WEEKS)\\n\\nDURING GESTATION AND LACTATION CATS\\n\",\n            \"price\": 280,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"64401598b4568f5abf5b8320\",\n            \"name\": \"Brit Care Kitten Pouch – Tender Turkey Fillets in Gravy (85g) \",\n            \"description\": \"The feline diet should be diverse, tasty, and, above all, healthy. Delicious Brit Care pouches serve both as complete food and as a yummy addition to dry food for extra variety and flavour. They’re especially suitable for very choosy cats or cats with problematic food intake. Thanks to added sea buckthorn and nasturtium, they help prevent urinary tract diseases.\\n\\nComposition: fillets with 85% meat (62% chicken, 15% liver, 8% turkey), broth, 1% sea buckthorn, 0,5% nasturtium, minerals, pea starch.\\n\\nAnalytical ingredients: crude protein 9.5%, crude fat 4.5%, crude fibers 0,5%, crude ash 2.0%, moisture 82.0%, calcium 0.25%, phosphorus 0.2%, sodium 0.3%.\\n\\nNutritional composition: vitamin D3 (E671) 280 I.U., vitamin E (3a700) 160 mg, biotin (3a880) 0.8 mg, zinc (3b606) 15 mg, manganese (3b502) 4 mg, iron (3b103) 12 mg, copper (3b405) 0.5 mg, iodine (3b201) 0.8 mg, taurine (3a370) 600 mg, L-methionine (3c305) 2 000 mg.\\n\\nMetabolizable energy: 840 kcal/kg.\\n\",\n            \"price\": 120,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"64401638b4568f5abf5b8321\",\n            \"name\": \"Brit Premium by Nature Cat Can – Chicken with Hearts (200g)\",\n            \"description\": \"Cats are meat eaters by nature, but they also require variety, so the composition of their diet is very important. This delicious and easily digestible paté, ideal as a treat or topper for kibbles, is sure to please cats of all breeds and categories. Complete Food for Adult Cats.\",\n            \"price\": 190,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        }\n    ],\n    \"message\": \"7 product(s) found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get specific product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/64401638b4568f5abf5b8321",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"64401638b4568f5abf5b8321"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/644012f4b4568f5abf5b831b",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										"644012f4b4568f5abf5b831b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1081"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"439-3x/lHv6yS02rG/RV9Xi05NHTXfU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 16:35:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"644012f4b4568f5abf5b831b\",\n        \"name\": \"Drools Absolute Calcium Syrup Dog Supplement (300ml)\",\n        \"description\": \"Drools Absolute Calcium Dog Supplement Syrup is for all breeds of dogs. It is an optimum Calcium and Phosphorus ratio that helps in maintaining a healthy skeletal system of dogs. It also helps in supporting the healthy joints in them. This Calcium and Phosphorus formula also helps in making teeth stronger. This Dog Supplement helps in eradicating the Calcium and Phosphorus deficiency in Dogs. Optimum Calcium-Phosphorous Ratio– Drools Absolute Calcium Dog Supplement Syrup has an optimum calcium-phosphorus ratio which helps in eradicating this deficiency. Supports Healthy Joints-This Dog Supplement contains calcium that helps in supporting healthy joints. Stronger Teeth-This Calcium-Phosphorous formula helps in maintaining dental health and promotes stronger teeth. Healthy Skeletal System-This Dog Supplement helps in maintain the healthy skeletal system in all breed of dogs.\",\n        \"price\": 1000,\n        \"category\": \"Dog\",\n        \"inventory\": 100\n    },\n    \"message\": \"Product found\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/64401638b4568f5abf5b8321",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										"64401638b4568f5abf5b8321"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e3-whwW1RsH2orrqUMP36AThURtFWM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 16:36:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"64401638b4568f5abf5b8321\",\n        \"name\": \"Brit Premium by Nature Cat Can – Chicken with Hearts (200g)\",\n        \"description\": \"Cats are meat eaters by nature, but they also require variety, so the composition of their diet is very important. This delicious and easily digestible paté, ideal as a treat or topper for kibbles, is sure to please cats of all breeds and categories. Complete Food for Adult Cats.\",\n        \"price\": 190,\n        \"category\": \"Cat\",\n        \"inventory\": 100\n    },\n    \"message\": \"Product found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11d-P4xYyASnP859JGbHrETs2KlUydY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 17:58:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"64402b51b4568f5abf5b8322\",\n            \"name\": \"Dog\"\n        },\n        {\n            \"_id\": \"64402b82b4568f5abf5b8323\",\n            \"name\": \"Cat\"\n        },\n        {\n            \"_id\": \"64402b95b4568f5abf5b8324\",\n            \"name\": \"Fish\"\n        },\n        {\n            \"_id\": \"64402b9db4568f5abf5b8325\",\n            \"name\": \"Other\"\n        },\n        {\n            \"_id\": \"64402ba8b4568f5abf5b8326\",\n            \"name\": \"Bird\"\n        }\n    ],\n    \"message\": \"5 categories found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get products with specific category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/categories/Dog",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"categories",
+								"Dog"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success. Find all products where category is Cat",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/categories/Cat",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										"categories",
+										"Cat"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2794"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aea-tiRENlyBDpXs3H1Ff3bxbTSK47g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 18:06:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"64401544b4568f5abf5b831f\",\n            \"name\": \"Spectrum Starter32 Kitten Food – Chicken Formula (400g)\",\n            \"description\": \"SPECTRUM Kitten Starter32 An especially formulated complete and balanced ultra-premium food to meet the nutritional requirements of kittens (4 to 16 weeks of age) and queens during gestation and lactation.\\n\\nThe nutritional concept of SPECTRUM Kitten Starter32 is focused to counter stress, digestive sensitivity and the immune gap in kittens at weaning and during post weaning period.\\n\\nCOMPOSITION: Dehydrated chicken protein, chicken fat, rice,  maize, whey powder, hydrolysed bagasse fibre, dried antarctic krill (euphausia superba), hydrolysed chicken liver, brewer’s yeast, whole egg powder, yucca schidigera, L-carnitine, fructo-oligosaccharides (300ppm), rosmarinus sp.- curcuma sp.- vitis sp.- citrus sp.- eugenia sp. (300ppm).\\n\\nNUTRITIVE ADDITIONS: Lodine (E2): 1,5 mg/kg, Copperr (E4): 45 mg/kg, Manganese (E5): 20 mg/kg, Zinc (E6):180 mg/kg, Selenium (E8) 0,9 mg/kg Preservative – Antioxidant.\\n\\nFOR KITTEN ( AGED FROM 4 TO 16 WEEKS)\\n\\nDURING GESTATION AND LACTATION CATS\\n\",\n            \"price\": 280,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"64401598b4568f5abf5b8320\",\n            \"name\": \"Brit Care Kitten Pouch – Tender Turkey Fillets in Gravy (85g) \",\n            \"description\": \"The feline diet should be diverse, tasty, and, above all, healthy. Delicious Brit Care pouches serve both as complete food and as a yummy addition to dry food for extra variety and flavour. They’re especially suitable for very choosy cats or cats with problematic food intake. Thanks to added sea buckthorn and nasturtium, they help prevent urinary tract diseases.\\n\\nComposition: fillets with 85% meat (62% chicken, 15% liver, 8% turkey), broth, 1% sea buckthorn, 0,5% nasturtium, minerals, pea starch.\\n\\nAnalytical ingredients: crude protein 9.5%, crude fat 4.5%, crude fibers 0,5%, crude ash 2.0%, moisture 82.0%, calcium 0.25%, phosphorus 0.2%, sodium 0.3%.\\n\\nNutritional composition: vitamin D3 (E671) 280 I.U., vitamin E (3a700) 160 mg, biotin (3a880) 0.8 mg, zinc (3b606) 15 mg, manganese (3b502) 4 mg, iron (3b103) 12 mg, copper (3b405) 0.5 mg, iodine (3b201) 0.8 mg, taurine (3a370) 600 mg, L-methionine (3c305) 2 000 mg.\\n\\nMetabolizable energy: 840 kcal/kg.\\n\",\n            \"price\": 120,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"64401638b4568f5abf5b8321\",\n            \"name\": \"Brit Premium by Nature Cat Can – Chicken with Hearts (200g)\",\n            \"description\": \"Cats are meat eaters by nature, but they also require variety, so the composition of their diet is very important. This delicious and easily digestible paté, ideal as a treat or topper for kibbles, is sure to please cats of all breeds and categories. Complete Food for Adult Cats.\",\n            \"price\": 190,\n            \"category\": \"Cat\",\n            \"inventory\": 100\n        }\n    ],\n    \"message\": \"3 product(s) found\"\n}"
+						},
+						{
+							"name": "Success. Find all products where category is Dog",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/products/categories/Dog",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"products",
+										"categories",
+										"Dog"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2398"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95e-if26AfYWLoVFfBbMBmsU76UqdgM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Apr 2023 18:07:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"644012f4b4568f5abf5b831b\",\n            \"name\": \"Drools Absolute Calcium Syrup Dog Supplement (300ml)\",\n            \"description\": \"Drools Absolute Calcium Dog Supplement Syrup is for all breeds of dogs. It is an optimum Calcium and Phosphorus ratio that helps in maintaining a healthy skeletal system of dogs. It also helps in supporting the healthy joints in them. This Calcium and Phosphorus formula also helps in making teeth stronger. This Dog Supplement helps in eradicating the Calcium and Phosphorus deficiency in Dogs. Optimum Calcium-Phosphorous Ratio– Drools Absolute Calcium Dog Supplement Syrup has an optimum calcium-phosphorus ratio which helps in eradicating this deficiency. Supports Healthy Joints-This Dog Supplement contains calcium that helps in supporting healthy joints. Stronger Teeth-This Calcium-Phosphorous formula helps in maintaining dental health and promotes stronger teeth. Healthy Skeletal System-This Dog Supplement helps in maintain the healthy skeletal system in all breed of dogs.\",\n            \"price\": 1000,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"644013b4b4568f5abf5b831c\",\n            \"name\": \"Drools Absolute Calcium Tablet Dog Supplement (110 Tablets)\",\n            \"description\": \"Drools Absolute Immunity Tablet -Dog Supplement is a formulation available in the form of chewable tablets especially designed for pets. It is enriched with the goodness of calcium that helps to promote joint health and stronger teeth.\",\n            \"price\": 1000,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"6440144ab4568f5abf5b831d\",\n            \"name\": \"Bonnie Dog Can – Chicken Chunks in Gravy (400g) \",\n            \"description\": \"INGREDIENTS: Meat and Animal Derivatives (Chicken 4% min.), Cereals, Minerals, Vegetable by products, sugar\\n\\nFEEDING RECOMMENDATION: See table below. The individual necessity depends on factors like age, breed or activity. Fresh drinking water should always be available. Serve at room temperature.\",\n            \"price\": 155,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        },\n        {\n            \"_id\": \"644014cfb4568f5abf5b831e\",\n            \"name\": \"Bonnie Dog Can – Beef Chunks in Gravy (400g)\",\n            \"description\": \"INGREDIENTS: Meat and Animal Derivatives (Beef 4% min.), Cereals, Minerals, Vegetable by products, Sugar.\\n\\nFEEDING RECOMMENDATION: See table below. The individual necessity depends on factors like age, breed or activity. Fresh drinking water should always be available. Serve at room temperature.\",\n            \"price\": 150,\n            \"category\": \"Dog\",\n            \"inventory\": 100\n        }\n    ],\n    \"message\": \"4 product(s) found\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
