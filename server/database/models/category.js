@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const { validateURL } = require("../validate");
+
 const Schema = mongoose.Schema;
 
 const categorySchema = new Schema({
@@ -7,6 +9,12 @@ const categorySchema = new Schema({
     type: String,
     required: true,
     minLength: 1,
+  },
+  imageUrl: {
+    type: String,
+    validate: {
+      validator: validateURL,
+    },
   },
 });
 
