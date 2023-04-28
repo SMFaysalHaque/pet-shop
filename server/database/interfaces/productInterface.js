@@ -36,7 +36,34 @@ const findProductById = async (id) => {
   }
 };
 
+const insertProduct = async (productObject) => {
+  try {
+    const product = new Product(productObject);
+    const data = await product.save();
+    if (data.nInserted === 0) {
+      console.log("Product insertion failed", e);
+      return {
+        status: "ERROR",
+        message: "Product insertion failed",
+      };
+    } else {
+      return {
+        data,
+        status: "OK",
+        message: "Product insertion successful",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      status: "EXCEPTION",
+      message: e.message,
+    };
+  }
+};
+
 module.exports = {
   findProductsByQuery,
   findProductById,
+  insertProduct,
 };

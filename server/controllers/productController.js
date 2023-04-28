@@ -1,4 +1,4 @@
-const { findProductById, findProductsByQuery } = require("../database/interfaces/productInterface");
+const { findProductById, findProductsByQuery, insertProduct } = require("../database/interfaces/productInterface");
 const { findCategoriesByQuery } = require("../database/interfaces/categoryInterface");
 
 const getProducts = async (req, res) => {
@@ -66,4 +66,40 @@ const getProductsOfSpecificCategory = async (req, res) => {
   });
 };
 
-module.exports = { getProducts, getProduct, getCategories, getProductsOfSpecificCategory };
+const createProduct = async (req, res) => {
+  try {
+    const { name, description, price, inventory, imageUrl, category } = req.body;
+    if (!name || !description || !price || !inventory) {
+      return res.status(400).send({
+        message: "Input Field error",
+      });
+    }
+
+    const product = {
+      name,
+      description,
+      price,
+      inventory,
+      ...(imageUrl ? { imageUrl } : {}),
+      ...(category ? { category } : {}),
+    };
+
+    const productInsertionResult = await insertProduct(product);
+    if (productInsertionResult.status === "OK") {
+      return res.status(200).send({
+        message: "Product insertion successful.",
+      });
+    } else {
+      return res.status(400).send({
+        message: "Product insertion failed.",
+      });
+    }
+  } catch (e) {
+    console.error(e);
+    return res.status(e.errorCode ?? 500).send({
+      message: e.message ?? "Internal Server Error",
+    });
+  }
+};
+
+module.exports = { getProducts, getProduct, getCategories, getProductsOfSpecificCategory, createProduct };
