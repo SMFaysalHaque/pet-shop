@@ -12,5 +12,6 @@ router.get("/:productId", productController.getProduct);
 
 router.post("/", checkAuthentication, checkAdmin, productController.createProduct);
 router.post("/:productId", checkAuthentication, checkAdmin, productController.handleUpdateProduct);
+router.delete("/:productId", checkAuthentication, checkAdmin, productController.handleDeleteProduct);
 
 module.exports = router;

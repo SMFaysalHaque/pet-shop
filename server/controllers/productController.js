@@ -3,6 +3,7 @@ const {
   findProductsByQuery,
   insertProduct,
   updateProduct,
+  deleteProduct,
 } = require("../database/interfaces/productInterface");
 const { findCategoriesByQuery } = require("../database/interfaces/categoryInterface");
 
@@ -125,13 +126,36 @@ const handleUpdateProduct = async (req, res) => {
     if (productUpdateResult.status === "OK") {
       return res.status(200).send({
         data: productUpdateResult.data,
-        message: "Product updated.",
+        message: productUpdateResult.message,
       });
     } else {
       return res.status(400).send({
-        message: "Product update failed.",
+        message: productUpdateResult.message,
       });
     }
+  } catch (e) {
+    console.error(e);
+    return res.status(e.errorCode ?? 500).send({
+      message: e.message ?? "Internal Server Error",
+    });
+  }
+};
+
+const handleDeleteProduct = async (req, res) => {
+  try {
+    const productId = req.params.productId;
+
+    const productDeletionResult = await deleteProduct(productId);
+
+    if (productDeletionResult.status !== "OK") {
+      return res.status(400).send({
+        message: productDeletionResult.message,
+      });
+    }
+
+    return res.status(200).send({
+      message: productDeletionResult.message,
+    });
   } catch (e) {
     console.error(e);
     return res.status(e.errorCode ?? 500).send({
@@ -147,4 +171,5 @@ module.exports = {
   getProductsOfSpecificCategory,
   createProduct,
   handleUpdateProduct,
+  handleDeleteProduct,
 };

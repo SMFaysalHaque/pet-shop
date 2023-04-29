@@ -95,9 +95,34 @@ const updateProduct = async (productId, updatePayload) => {
   }
 };
 
+const deleteProduct = async (productId) => {
+  try {
+    const data = await Product.findOneAndDelete({ _id: productId });
+    if (data) {
+      return {
+        data,
+        message: "Product removed successfully.",
+        status: "OK",
+      };
+    } else {
+      return {
+        message: "Could not remove Product.",
+        status: "ERROR",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      message: e.message,
+      status: "EXCEPTION",
+    };
+  }
+};
+
 module.exports = {
   findProductsByQuery,
   findProductById,
   insertProduct,
   updateProduct,
+  deleteProduct,
 };
