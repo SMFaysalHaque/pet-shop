@@ -41,7 +41,6 @@ const insertProduct = async (productObject) => {
     const product = new Product(productObject);
     const data = await product.save();
     if (data.nInserted === 0) {
-      console.log("Product insertion failed", e);
       return {
         status: "ERROR",
         message: "Product insertion failed",
@@ -62,8 +61,43 @@ const insertProduct = async (productObject) => {
   }
 };
 
+const updateProduct = async (productId, updatePayload) => {
+  try {
+    const data = await Product.findOneAndUpdate(
+      {
+        _id: productId,
+      },
+      updatePayload,
+      {
+        new: true,
+      }
+    );
+    if (data) {
+      return {
+        data,
+        status: "OK",
+        message: "Product updated",
+      };
+    } else {
+      return {
+        data: null,
+        status: "ERROR",
+        message: "Product update failed",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      data: null,
+      message: e.message,
+      status: "EXCEPTION",
+    };
+  }
+};
+
 module.exports = {
   findProductsByQuery,
   findProductById,
   insertProduct,
+  updateProduct,
 };

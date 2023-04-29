@@ -11,5 +11,6 @@ router.get("/categories/:category", productController.getProductsOfSpecificCateg
 router.get("/:productId", productController.getProduct);
 
 router.post("/", checkAuthentication, checkAdmin, productController.createProduct);
+router.post("/:productId", checkAuthentication, checkAdmin, productController.handleUpdateProduct);
 
 module.exports = router;
