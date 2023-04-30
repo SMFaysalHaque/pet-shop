@@ -5,7 +5,12 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../database/interfaces/productInterface");
-const { findCategoriesByQuery } = require("../database/interfaces/categoryInterface");
+const {
+  findCategoriesByQuery,
+  checkCategoryExists,
+  insertCategory,
+  deleteCategory,
+} = require("../database/interfaces/categoryInterface");
 
 const getProducts = async (req, res) => {
   const productQueryResult = await findProductsByQuery({});
@@ -164,6 +169,69 @@ const handleDeleteProduct = async (req, res) => {
   }
 };
 
+const createCategory = async (req, res) => {
+  try {
+    const { name, imageUrl } = req.body;
+    if (!name || !imageUrl) {
+      return res.status(400).send({
+        message: "Input Field error",
+      });
+    }
+
+    // check if category already exists
+    const categoryExists = await checkCategoryExists({ name });
+    if (categoryExists.data.length) {
+      return res.status(400).send({
+        message: categoryExists.message,
+      });
+    }
+
+    const category = {
+      name,
+      imageUrl,
+    };
+
+    const categoryInsertionResult = await insertCategory(category);
+    if (categoryInsertionResult.status === "OK") {
+      return res.status(200).send({
+        message: categoryInsertionResult.message,
+      });
+    } else {
+      return res.status(400).send({
+        message: categoryInsertionResult.message,
+      });
+    }
+  } catch (e) {
+    console.error(e);
+    return res.status(e.errorCode ?? 500).send({
+      message: e.message ?? "Internal Server Error",
+    });
+  }
+};
+
+const handleDeleteCategory = async (req, res) => {
+  try {
+    const category = req.params.category;
+
+    const categoryDeletionResult = await deleteCategory(category);
+
+    if (categoryDeletionResult.status !== "OK") {
+      return res.status(400).send({
+        message: categoryDeletionResult.message,
+      });
+    }
+
+    return res.status(200).send({
+      message: categoryDeletionResult.message,
+    });
+  } catch (e) {
+    console.error(e);
+    return res.status(e.errorCode ?? 500).send({
+      message: e.message ?? "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   getProducts,
   getProduct,
@@ -172,4 +240,6 @@ module.exports = {
   createProduct,
   handleUpdateProduct,
   handleDeleteProduct,
+  createCategory,
+  handleDeleteCategory,
 };

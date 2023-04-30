@@ -8,6 +8,10 @@ const checkAuthentication = require("../middleware/checkAuthentication");
 router.get("/", productController.getProducts);
 router.get("/categories", productController.getCategories);
 router.get("/categories/:category", productController.getProductsOfSpecificCategory);
+
+router.post("/categories", checkAuthentication, checkAdmin, productController.createCategory);
+router.delete("/categories/:category", checkAuthentication, checkAdmin, productController.handleDeleteCategory);
+
 router.get("/:productId", productController.getProduct);
 
 router.post("/", checkAuthentication, checkAdmin, productController.createProduct);
