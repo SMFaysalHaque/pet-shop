@@ -12,8 +12,23 @@ const {
   deleteCategory,
 } = require("../database/interfaces/categoryInterface");
 
+const { isNumeric } = require("../util/common");
+
 const getProducts = async (req, res) => {
-  const productQueryResult = await findProductsByQuery({});
+  const { min, max } = req.query;
+  let queryData;
+  if (!min && !max) {
+    queryData = {};
+  } else if ((min && !max) || (max && !min) || !isNumeric(min) || !isNumeric(max) || min < 0 || max < 0) {
+    return res.status(400).send({
+      message: "Query string error. Check min and max value.",
+    });
+  }
+
+  if (min && max) {
+    queryData = { price: { $gte: min, $lte: max } };
+  }
+  const productQueryResult = await findProductsByQuery(queryData);
 
   let statusCode = 200;
   let message = productQueryResult.message;
