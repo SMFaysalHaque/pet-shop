@@ -5,7 +5,6 @@ const insertUser = async (userObject) => {
     const user = new User(userObject);
     const data = await user.save();
     if (data.nInserted === 0) {
-      console.log("User insertion failed", e);
       return {
         status: "ERROR",
         message: "User insertion failed",

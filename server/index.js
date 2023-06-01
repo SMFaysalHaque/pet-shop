@@ -8,6 +8,7 @@ let { mongoose } = require("./database/mongoose");
 const express = require("express");
 const cors = require("cors");
 
+const adminRouter = require("./routes/admin");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 //API ROUTES
+app.use("/api/admin", adminRouter);
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 

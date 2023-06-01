@@ -36,7 +36,93 @@ const findProductById = async (id) => {
   }
 };
 
+const insertProduct = async (productObject) => {
+  try {
+    const product = new Product(productObject);
+    const data = await product.save();
+    if (data.nInserted === 0) {
+      return {
+        status: "ERROR",
+        message: "Product insertion failed",
+      };
+    } else {
+      return {
+        data,
+        status: "OK",
+        message: "Product insertion successful",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      status: "EXCEPTION",
+      message: e.message,
+    };
+  }
+};
+
+const updateProduct = async (productId, updatePayload) => {
+  try {
+    const data = await Product.findOneAndUpdate(
+      {
+        _id: productId,
+      },
+      updatePayload,
+      {
+        new: true,
+      }
+    );
+    if (data) {
+      return {
+        data,
+        status: "OK",
+        message: "Product updated",
+      };
+    } else {
+      return {
+        data: null,
+        status: "ERROR",
+        message: "Product update failed",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      data: null,
+      message: e.message,
+      status: "EXCEPTION",
+    };
+  }
+};
+
+const deleteProduct = async (productId) => {
+  try {
+    const data = await Product.findOneAndDelete({ _id: productId });
+    if (data) {
+      return {
+        data,
+        message: "Product removed successfully.",
+        status: "OK",
+      };
+    } else {
+      return {
+        message: "Could not remove Product.",
+        status: "ERROR",
+      };
+    }
+  } catch (e) {
+    console.error("DB exception", e);
+    return {
+      message: e.message,
+      status: "EXCEPTION",
+    };
+  }
+};
+
 module.exports = {
   findProductsByQuery,
   findProductById,
+  insertProduct,
+  updateProduct,
+  deleteProduct,
 };

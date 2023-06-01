@@ -12,4 +12,8 @@ const hashPassword = (password) => {
   });
 };
 
-module.exports = { hashPassword };
+const isNumeric = (num) => {
+  return (typeof num === "number" || (typeof num === "string" && num.trim() !== "")) && !isNaN(num);
+};
+
+module.exports = { hashPassword, isNumeric };
