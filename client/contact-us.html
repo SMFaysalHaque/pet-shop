@@ -15,11 +15,11 @@
   </head>
   <body>
     <!-- top navbar start -->
-    <header class="container-fluid">
-      <div class="container">
+    <header class="container-fluid bg-light">
+      <div class="container px-0">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
-            <a class="navbar-brand fs-3 fw-bolder" href="#">Pet Shop</a>
+            <a class="navbar-brand fs-3 fw-bolder" href="../index.html">Pet Shop</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -32,9 +32,9 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <ul class="navbar-nav d-flex justify-content-evenly align-items-center w-100 mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
+                  <a class="nav-link active" aria-current="page" href="../index.html"
                     >Home</a
                   >
                 </li>
@@ -58,18 +58,18 @@
                       <li>
                           <a class="dropdown-item" href="#">Birds Product</a>
                         </li>
-                      <li><hr class="dropdown-divider" /></li>
+                      <!-- <li><hr class="dropdown-divider" /></li>
                       <li>
                         <a class="dropdown-item" href="#">Something else here</a>
-                      </li>
+                      </li> -->
                     </ul>
                   </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./contact-us.html">Contact Us</a>
+                  <a class="nav-link" href="../contact-us.html">Contact Us</a>
                 </li>
                 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a
                     class="nav-link disabled"
                     href="#"
@@ -77,19 +77,36 @@
                     aria-disabled="true"
                     >Disabled</a
                   >
+                </li> -->
+                <!-- search area start -->
+                <li class="nav-item" style="width: 300px;">
+                  <form class="nav-link d-flex">
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <button class="btn btn-outline-info" type="submit">
+                      Search
+                    </button>
+                  </form>
                 </li>
+                <!-- search area end -->
+
+                <!-- sign button area start -->
+                <li class="nav-item">
+                  <button class="btn btn-outline-success mx-1" type="button">Sign In</button>
+                  <button class="btn btn-outline-primary mx-1" type="button">Sign Up</button>
+                </li>
+                <!-- sign button area end -->
+
+                <!-- sign up button start -->
+                <li class="nav-item">
+                  
+                </li>
+                <!-- sign up button end -->
               </ul>
-              <form class="d-flex ms-auto">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
             </div>
           </div>
         </nav>
@@ -98,22 +115,23 @@
     <!-- top navbar end -->
 
     <!-- contact us area start -->
-    <div class="container d-flex flex-column align-items-center">
-      <h1 class="mt-5 mb-5">Contact Us</h1>
-      <div class="form-area w-50">
-        <form class="row g-3">
+    <div class="container-fluid my-5">
+      <div class="container-md d-flex flex-column align-items-center">
+        <h1 class="mb-5 fw-bolder">Contact Us</h1>
+        <div class="form-area w-75 rounded-3 p-3 p-sm-5" style="background-color: #bfedff7e;">
+          <form class="row g-3">
             <div class="col-md-6">
-                <label for="inputFirstName" class="form-label">First name</label>
-                <input type="text" class="form-control" aria-label="First name">
-              </div>
-              <div class="col-md-6">
-                <label for="inputLastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" aria-label="Last name">
-              </div>
-              <div class="col-md-4">
-                <label for="inputMobile" class="form-label">Mobile</label>
-                <input type="mobile" class="form-control" id="inputMobile">
-              </div>
+              <label for="inputFirstName" class="form-label">First name</label>
+              <input type="text" class="form-control" aria-label="First name">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" aria-label="Last name">
+            </div>
+            <div class="col-md-4">
+              <label for="inputMobile" class="form-label">Mobile</label>
+              <input type="mobile" class="form-control" id="inputMobile">
+            </div>
             <div class="col-md-4">
               <label for="inputEmail4" class="form-label">Email</label>
               <input type="email" class="form-control" id="inputEmail4">
@@ -146,13 +164,14 @@
               <input type="text" class="form-control" id="inputZip">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
+              <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
+        </div>
       </div>
     </div>
     <!-- contact us area end -->
@@ -161,24 +180,24 @@
     <footer>
       <div class="container-fluid bg-light">
           <div class="container d-flex flex-wrap p-5">
-            <div class="col-12 col-md-4">
-              <h2>Pet Shop</h2>
+            <div class="col-12 col-md-4 px-md-5">
+              <h2 class="fw-bold">Pet Shop</h2>
               <p>© 2022 Rizvi Theme. All rights reserved.</p>
             </div>
-            <div class="col-12 col-md-4 pe-5">
-              <h4>About Us</h4>
+            <div class="col-12 col-md-4 px-md-5">
+              <h4 class="fw-bold">About Us</h4>
               <p class="mb-3">Quis quisque viverra nulla risus integer aliquet in. Dis nascetur vitae sed ultricies vel luctus massa. Sed orci ut magnis maecenas pharetra.</p>
               <p>Ut et duis ornare in eget elit. Vestibulum nisi nec ultricies consectetur suspendisse. Vitae aliquam quis sed at et.</p>
             </div>
-            <div class="col-12 col-md-4">
-              <h4>Contact Us</h4>
+            <div class="col-12 col-md-4 px-md-5">
+              <h4 class="fw-bold">Contact Us</h4>
               <p>Mobile: 01245789653</p>
               <p>Address: 123/1, East xxxx, New York.</p>
               <p>Email: pet_shop@gmail.com</p>
             </div>
           </div>
       </div>
-  </footer>
+    </footer>
     <!-- footer end -->
 
     <script
