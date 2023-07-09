@@ -34,7 +34,7 @@ form.addEventListener('submit', async function(e) {
     console.log([...formData]);
     
     try {
-        const res = await axios.post('localhost:3000/api/users/register', formData)
+        const res = await axios.post('http://localhost:3000/api/users/register', formData)
         console.log(res);
     } catch(e){
         console.log(e);
