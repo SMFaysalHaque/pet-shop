@@ -3,8 +3,7 @@
 // const axios = require('axios');
 
 // Make a request for a user with a given ID
-axios
-    .get("http://localhost:3000/api/products/categories/Dog")
+axios.get("http://localhost:3000/api/products/categories/Dog")
     .then(function (response) {
         // handle success
         console.log("API RESPONSE:", response.data.data);

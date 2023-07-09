@@ -3,15 +3,14 @@
 // const axios = require('axios');
 
 // Make a request for a user with a given ID
-axios
-    .get("http://localhost:3000/api/products/categories/Cat")
+axios.get("http://localhost:3000/api/products/categories/Cat")
     .then(function (response) {
         // handle success
         console.log("API RESPONSE:", response.data.data);
         let productDetail = response.data.data;
 
         productDetail.map((card, i) => {
-            // dog's products carousel card details photo and name start
+            // cat's products carousel card details photo and name start
 
             let itemDiv1 = document.createElement("div");
             itemDiv1.innerHTML = `
@@ -35,9 +34,9 @@ axios
                     .getElementsByClassName("slide-card1")[0]
                     .appendChild(itemDiv1);
             }
-            // dog's products carousel card details photo and name end
+            // cat's products carousel card details photo and name end
 
-            // dog's products carousel card details photo and name start
+            // cat's products carousel card details photo and name start
             let itemDiv2 = document.createElement("div");
             itemDiv2.innerHTML = `
                     <div class="col-6 col-md-3"
@@ -62,9 +61,9 @@ axios
                     .appendChild(itemDiv2);
             }
 
-            // dog's products carousel card details photo and name end
+            // cat's products carousel card details photo and name end
 
-            // dog's products carousel card details photo and name start
+            // cat's products carousel card details photo and name start
             let itemDiv3 = document.createElement("div");
             itemDiv3.innerHTML = `
                     <div class="col-6 col-md-3">
@@ -89,14 +88,14 @@ axios
                     .appendChild(itemDiv3);
             }
 
-            // dog's products carousel card details photo and name end
+            // cat's products carousel card details photo and name end
 
-            // dog's product card details start
+            // cat's product card details start
             let cardDiv = document.createElement("div");
             cardDiv.innerHTML = `
                     <div class="col">
                         <div class="card">
-                            <!-- code in dogProducts.js file -->
+                            <!-- code in catProducts.js file -->
                             <img
                                 src="${card.imageUrl}"
                                 class="card-img-top w-100 h-100"
@@ -136,10 +135,8 @@ axios
                         </div>
                     </div>
                     `;
-            document
-                .getElementsByClassName("card-main")[0]
-                .appendChild(cardDiv);
-            // dog's product card details end
+            document.getElementsByClassName("card-main")[0].appendChild(cardDiv);
+            // cat's product card details end
         });
     })
     .catch(function (error) {
