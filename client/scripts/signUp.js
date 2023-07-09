@@ -26,17 +26,48 @@
 
 
 
-const form = document.getElementById("form")
-form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+// const form = document.getElementById("form")
+// form.addEventListener('submit', async function(e) {
+//     e.preventDefault();
 
-    const formData = new FormData(form);
-    console.log([...formData]);
+//     const formData = new FormData(form);
+//     console.log([...formData]);
+//     alert("Successfully Sign Up!!!")
     
-    try {
-        const res = await axios.post('http://localhost:3000/api/users/register', formData)
-        console.log(res);
-    } catch(e){
-        console.log(e);
-    }
-})
+//     try {
+//         const res = await axios.post('http://localhost:3000/api/users/register', formData)
+//         console.log(res);
+//     } catch(e){
+//         console.log(e);
+//     }
+// })
+
+
+
+const form = document.getElementById('signup-form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Create an object with user data
+  const userData = {
+    firstName: username,
+    email: email,
+    password: password
+  };
+
+  // Make a POST request using Axios
+  axios.post('http://localhost:3000/api/users/register', userData)
+    .then(function(response) {
+      // Handle the response here
+      console.log(response.data);
+    })
+    .catch(function(error) {
+      // Handle the error here
+      console.error(error);
+    });
+});
