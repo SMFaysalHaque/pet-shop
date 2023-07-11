@@ -127,6 +127,7 @@ axios.get("http://localhost:3000/api/products/categories/Dog")
                                     <button
                                         type="button"
                                         class="btn btn-primary"
+                                        onclick="cartPage()"
                                     >
                                         Add Cart
                                     </button>
@@ -148,3 +149,7 @@ axios.get("http://localhost:3000/api/products/categories/Dog")
     .finally(function () {
         // always executed
     });
+
+    function cartPage(){
+        window.open("http://127.0.0.1:5500/client/cart-page.html","_self")
+    }

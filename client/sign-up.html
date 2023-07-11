@@ -18,7 +18,7 @@
         /> -->
         <title>Sign Up</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- header start here -->
         <header class="container-fluid bg-light">
             <div class="container px-0">
@@ -121,8 +121,9 @@
 
                                 <!-- search area start -->
                                 <li class="nav-item" style="width: 300px">
-                                    <form class="nav-link d-flex">
+                                    <div class="nav-link d-flex">
                                         <input
+                                        id="searchText"
                                             class="form-control me-2"
                                             type="search"
                                             placeholder="Search"
@@ -131,15 +132,16 @@
                                         <button
                                             class="btn btn-outline-info"
                                             type="submit"
+                                            onclick="searchClickHandler()"
                                         >
                                             Search
                                         </button>
-                                    </form>
+                                    </div>
                                 </li>
                                 <!-- search area end -->
 
-                                <!-- sign button area start -->
-                                <li class="nav-item">
+                                <!-- sign in and sign up button area start -->
+                                <li id="signIn-signUp" class="nav-item">
                                     <a
                                         class="btn btn-outline-success mx-1"
                                         href="./sign-in.html"
@@ -153,7 +155,24 @@
                                         >Sign Up</a
                                     >
                                 </li>
-                                <!-- sign button area end -->
+                                <!-- sign in and sign up button area end -->
+
+                                <!-- sign in and sign up button area start -->
+                                <li id="name-logout" class="nav-item" style="display: none;">
+                                    <div
+                                    id="userName"
+                                        class="btn btn-outline-success mx-1"
+                                        >Name</div
+                                    >
+                                    <button
+                                    onclick="logOutClickHandler()"
+                                    id="log-out"
+                                        class="btn btn-outline-primary mx-1"
+                                        role="button"
+                                        >Log Out</button
+                                    >
+                                </li>
+                                <!-- sign in and sign up button area end -->
                             </ul>
                         </div>
                     </div>
@@ -164,6 +183,14 @@
 
         <!-- main start here -->
         <main class="container my-5">
+            <!-- search result start -->
+            <div
+                id=""
+                class="search-result row row-cols-2 row-cols-lg-4 my-3 g-2 h-25"
+            >
+                <!-- code in js file -->
+            </div>
+            <!-- search result end -->
             <div class="container-fluid d-flex flex-column align-items-center">
                 <h1 class="mb-5 fw-bolder">Sign Up</h1>
                 <form
@@ -173,16 +200,31 @@
                 >
                     <div class="mb-3">
                         <label
-                            for="name"
+                            for="firstName"
                             class="form-label"
-                            >Name</label
+                            >First Name</label
                         >
                         <input
                             type="text"
                             class="form-control"
-                            name="name"
-                            id="username"
-                            placeholder="name"
+                            name="firstName"
+                            id="firstName"
+                            placeholder="firstName"
+                            required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label
+                            for="lastName"
+                            class="form-label"
+                            >Last Name</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="lastName"
+                            id="lastName"
+                            placeholder="lastName"
                             required
                         />
                     </div>
@@ -236,7 +278,7 @@
         <!-- main end here -->
 
         <!-- footer start here -->
-        <footer>
+        <footer class="mt-auto">
             <div class="container-fluid bg-light">
                 <div class="container d-flex flex-wrap p-5">
                     <div class="col-12 col-lg-4 px-lg-5">
@@ -274,8 +316,9 @@
             crossorigin="anonymous"
         ></script>
         <script src="../server/node_modules/axios/dist/axios.min.js"></script>
-        <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
         <script src="../client/scripts/signUp.js"></script>
+        <script src="./scripts/loginUtility.js"></script>
+        <script src="../client/scripts/searchUtil.js"></script>
         <!-- script end here -->
     </body>
 </html>

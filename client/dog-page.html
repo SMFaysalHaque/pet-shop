@@ -18,7 +18,7 @@
         /> -->
         <title>Dog's Product</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- header start here -->
         <header class="container-fluid bg-light">
             <div class="container px-0">
@@ -55,7 +55,7 @@
                                         >Home</a
                                     >
                                 </li>
-
+        
                                 <li class="nav-item dropdown">
                                     <a
                                         class="nav-link dropdown-toggle"
@@ -98,13 +98,13 @@
                   </li> -->
                                     </ul>
                                 </li>
-
+        
                                 <li class="nav-item">
                                     <a class="nav-link" href="./contact-us.html"
                                         >Contact Us</a
                                     >
                                 </li>
-
+        
                                 <!-- <li class="nav-item">
               <a
                 class="nav-link disabled"
@@ -124,11 +124,12 @@
                                     >
                                 </li>
                                 <!-- cart button end -->
-
+        
                                 <!-- search area start -->
                                 <li class="nav-item" style="width: 300px">
-                                    <form class="nav-link d-flex">
+                                    <div class="nav-link d-flex">
                                         <input
+                                        id="searchText"
                                             class="form-control me-2"
                                             type="search"
                                             placeholder="Search"
@@ -137,23 +138,24 @@
                                         <button
                                             class="btn btn-outline-info"
                                             type="submit"
+                                            onclick="searchClickHandler()"
                                         >
                                             Search
                                         </button>
-                                    </form>
+                                    </div>
                                 </li>
                                 <!-- search area end -->
-
+        
                                 <!-- sign in and sign up button area start -->
-                                <li class="nav-item">
+                                <li id="signIn-signUp" class="nav-item">
                                     <a
-                                        class="btn btn-outline-success"
+                                        class="btn btn-outline-success mx-1"
                                         href="./sign-in.html"
                                         role="button"
                                         >Sign In</a
                                     >
                                     <a
-                                        class="btn btn-outline-primary"
+                                        class="btn btn-outline-primary mx-1"
                                         href="./sign-up.html"
                                         role="button"
                                         >Sign Up</a
@@ -161,6 +163,23 @@
                                 </li>
                                 <!-- sign in and sign up button area end -->
 
+                                <!-- sign in and sign up button area start -->
+                                <li id="name-logout" class="nav-item" style="display: none;">
+                                    <div
+                                    id="userName"
+                                        class="btn btn-outline-success mx-1"
+                                        >Name</div
+                                    >
+                                    <button
+                                    onclick="logOutClickHandler()"
+                                    id="log-out"
+                                        class="btn btn-outline-primary mx-1"
+                                        role="button"
+                                        >Log Out</button
+                                    >
+                                </li>
+                                <!-- sign in and sign up button area end -->
+        
                                 <!-- sign up button start -->
                                 <li class="nav-item"></li>
                                 <!-- sign up button end -->
@@ -252,6 +271,15 @@
             </div>
             <!-- carousel area end -->
 
+            <!-- search result start -->
+            <div
+                id=""
+                class="search-result row row-cols-2 row-cols-lg-4 my-3 g-2 h-25"
+            >
+                <!-- code in js file -->
+            </div>
+            <!-- search result end -->
+
             <!-- dog product area start -->
             <div class="row my-3">
                 <!-- filter area start -->
@@ -339,7 +367,7 @@
         <!-- main end here -->
 
         <!-- footer start here -->
-        <footer>
+        <footer class="mt-auto">
             <div class="container-fluid bg-light">
                 <div class="container d-flex flex-wrap p-5">
                     <div class="col-12 col-lg-4 px-lg-5">
@@ -376,7 +404,8 @@
             crossorigin="anonymous"
         ></script>
         <script src="../server/node_modules/axios/dist/axios.min.js"></script>
-        <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
         <script src="../client/scripts/dogProducts.js"></script>
+        <script src="./scripts/loginUtility.js"></script>
+        <script src="../client/scripts/searchUtil.js"></script>
     </body>
 </html>

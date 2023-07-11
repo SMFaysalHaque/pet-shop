@@ -13,7 +13,7 @@
         />
         <title>Contact Us</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- header start here -->
         <header class="container-fluid bg-light">
             <div class="container px-0">
@@ -116,8 +116,9 @@
 
                                 <!-- search area start -->
                                 <li class="nav-item" style="width: 300px">
-                                    <form class="nav-link d-flex">
+                                    <div class="nav-link d-flex">
                                         <input
+                                        id="searchText"
                                             class="form-control me-2"
                                             type="search"
                                             placeholder="Search"
@@ -126,15 +127,16 @@
                                         <button
                                             class="btn btn-outline-info"
                                             type="submit"
+                                            onclick="searchClickHandler()"
                                         >
                                             Search
                                         </button>
-                                    </form>
+                                    </div>
                                 </li>
                                 <!-- search area end -->
 
-                                <!-- sign button area start -->
-                                <li class="nav-item">
+                                <!-- sign in and sign up button area start -->
+                                <li id="signIn-signUp" class="nav-item">
                                     <a
                                         class="btn btn-outline-success mx-1"
                                         href="./sign-in.html"
@@ -148,7 +150,24 @@
                                         >Sign Up</a
                                     >
                                 </li>
-                                <!-- sign button area end -->
+                                <!-- sign in and sign up button area end -->
+
+                                <!-- sign in and sign up button area start -->
+                                <li id="name-logout" class="nav-item" style="display: none;">
+                                    <div
+                                    id="userName"
+                                        class="btn btn-outline-success mx-1"
+                                        >Name</div
+                                    >
+                                    <button
+                                    onclick="logOutClickHandler()"
+                                    id="log-out"
+                                        class="btn btn-outline-primary mx-1"
+                                        role="button"
+                                        >Log Out</button
+                                    >
+                                </li>
+                                <!-- sign in and sign up button area end -->
 
                                 <!-- sign up button start -->
                                 <li class="nav-item"></li>
@@ -163,126 +182,87 @@
 
         <!-- contact us area start -->
         <div class="container-fluid my-5">
+            <!-- search result start -->
+            <div
+                id=""
+                class="search-result row row-cols-2 row-cols-lg-4 my-3 g-2 h-25"
+            >
+                <!-- code in js file -->
+            </div>
+            <!-- search result end -->
             <div class="container-md d-flex flex-column align-items-center">
                 <h1 class="mb-5 fw-bolder">Contact Us</h1>
                 <div
                     class="form-area w-75 rounded-3 p-3 p-sm-5"
                     style="background-color: #bfedff7e"
                 >
-                    <form class="row g-3">
+                    <form class="row g-3" id="contact-us-form">
                         <div class="col-md-6">
-                            <label for="inputFirstName" class="form-label"
+                            <label for="firstName" class="form-label"
                                 >First name</label
                             >
                             <input
                                 type="text"
+                                id="firstName"
                                 class="form-control"
                                 aria-label="First name"
                             />
                         </div>
                         <div class="col-md-6">
-                            <label for="inputLastName" class="form-label"
+                            <label for="lastName" class="form-label"
                                 >Last name</label
                             >
                             <input
                                 type="text"
+                                id="lastName"
                                 class="form-control"
                                 aria-label="Last name"
                             />
                         </div>
                         <div class="col-md-4">
-                            <label for="inputMobile" class="form-label"
+                            <label for="mobile" class="form-label"
                                 >Mobile</label
                             >
                             <input
                                 type="mobile"
+                                id="mobile"
                                 class="form-control"
-                                id="inputMobile"
                             />
                         </div>
                         <div class="col-md-4">
-                            <label for="inputEmail4" class="form-label"
+                            <label for="email" class="form-label"
                                 >Email</label
                             >
                             <input
                                 type="email"
+                                id="email"
                                 class="form-control"
-                                id="inputEmail4"
                             />
                         </div>
                         <div class="col-md-4">
-                            <label for="inputPassword4" class="form-label"
-                                >Password</label
-                            >
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="inputPassword4"
-                            />
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label"
+                            <label for="address" class="form-label"
                                 >Address</label
                             >
                             <input
                                 type="text"
+                                id="address"
                                 class="form-control"
-                                id="inputAddress"
-                                placeholder="1234 Main St"
-                            />
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress2" class="form-label"
-                                >Address 2</label
-                            >
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="inputAddress2"
-                                placeholder="Apartment, studio, or floor"
-                            />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label"
-                                >City</label
-                            >
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="inputCity"
-                            />
-                        </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label"
-                                >State</label
-                            >
-                            <select id="inputState" class="form-select">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Zip</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="inputZip"
                             />
                         </div>
                         <div class="mb-3">
                             <label
-                                for="exampleFormControlTextarea1"
+                                for="comment"
                                 class="form-label"
                                 >Comment</label
                             >
                             <textarea
                                 class="form-control"
-                                id="exampleFormControlTextarea1"
+                                id="comment"
                                 rows="3"
                             ></textarea>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">
+                            <button onclick="submitForm()" type="submit" class="btn btn-primary">
                                 Submit
                             </button>
                         </div>
@@ -293,7 +273,7 @@
         <!-- contact us area end -->
 
         <!-- footer start here -->
-        <footer>
+        <footer class="mt-auto">
             <div class="container-fluid bg-light">
                 <div class="container d-flex flex-wrap p-5">
                     <div class="col-12 col-lg-4 px-lg-5">
@@ -329,5 +309,8 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
         ></script>
+        <script src="./scripts/loginUtility.js"></script>
+        <script src="../client/scripts/searchUtil.js"></script>
+        <script src="./scripts/contactUs.js"></script>
     </body>
 </html>

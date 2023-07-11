@@ -1,14 +1,67 @@
-const form = document.getElementById("form")
-form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+// const form = document.getElementById("form")
+// form.addEventListener('submit', async function(e) {
+//     e.preventDefault();
 
-    const formData = new FormData(form);
-    console.log([...formData]);
+//     const formData = new FormData(form);
+//     console.log([...formData]);
     
-    try {
-        const res = await axios.post('http://localhost:3000/api/users/login', formData)
-        console.log(res);
-    } catch(e){
-        console.log(e);
-    }
-})
+//     try {
+//         const res = await axios.post('http://localhost:3000/api/users/login', formData)
+//         console.log(res);
+//     } catch(e){
+//         console.log(e);
+//     }
+// })
+// import jwt from "jsonwebtoken"
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+
+function getUserNameFromToken(token) {
+    const decoded = parseJwt (token);
+    console.log(decoded);
+    const name = decoded.firstName || "user"
+    return name
+}
+
+const form = document.getElementById('signIn-form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Create an object with user data
+  const userData = {
+    email: email,
+    password: password
+  };
+
+  // Make a POST request using Axios
+  axios.post('http://localhost:3000/api/users/login', userData)
+    .then(function(response) {
+      // Handle the response here
+      console.log("xxx:", response.data);
+      if (response.status === 200) {
+        alert("Login successful!!!")
+        localStorage.setItem('isLoggedIn', true);
+        const name = getUserNameFromToken(response.data.token)
+        localStorage.setItem('userName', name);
+        // sign up and sign in button will be hidden and logout-name will show.
+      }
+    //   response.status
+    })
+    .catch(function(error) {
+      // Handle the error here
+      console.error(error);
+      alert ("Enter valid email and password!!!")
+    });
+});
+

@@ -49,13 +49,15 @@ const form = document.getElementById('signup-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission
 
-  const username = document.getElementById('username').value;
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
   // Create an object with user data
   const userData = {
-    firstName: username,
+    firstName: firstName,
+    lastName: lastName,
     email: email,
     password: password
   };
@@ -64,7 +66,13 @@ form.addEventListener('submit', function(event) {
   axios.post('http://localhost:3000/api/users/register', userData)
     .then(function(response) {
       // Handle the response here
-      console.log(response.data);
+      console.log("xxx:", response.status);
+      if (response.status === 200) {
+        alert("User registration successful!!!")
+        // go to home page
+        
+      }
+      response.status
     })
     .catch(function(error) {
       // Handle the error here
