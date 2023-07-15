@@ -132,6 +132,7 @@ const contact = async (req, res) => {
     const content = `
       <p>User with email: ${email} just posted the following comment.</p>
       <p>${comment}</p>
+      <br /><br />
       <p>This email is auto generated. Do not reply to this email.</p>
     `;
     await mailer(content);

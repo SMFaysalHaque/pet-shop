@@ -11,6 +11,7 @@ const cors = require("cors");
 const adminRouter = require("./routes/admin");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
+const orderRouter = require("./routes/order");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cors());
 app.use("/api/admin", adminRouter);
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

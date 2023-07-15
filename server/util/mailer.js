@@ -18,7 +18,7 @@ async function mailer(content) {
     html: content,
   });
 
-  console.log(info.messageId);
+  // console.log(info.messageId);
 }
 
 module.exports = { mailer };

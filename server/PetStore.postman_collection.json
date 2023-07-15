@@ -266,7 +266,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6InRlc3QtdXNlci0xIiwibGFzdE5hbWUiOiJsYXN0LTEiLCJwaG9uZSI6IjAxNzAwMDAwMDAxIiwicHJlc2VudEFkZHJlc3MiOiJ0ZXN0LWFkZHJlc3MtMSIsImlhdCI6MTY4MTYwMDcxMSwiZXhwIjoxNjg0MTkyNzExfQ.iaBlUHDsW_gt-fJobi5v4D5ol2MVlUiNaqLCu41LxW4\"\n}"
+							"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"ey1JhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6InRlc3QtdXNlci0xIiwibGFzdE5hbWUiOiJsYXN0LTEiLCJwaG9uZSI6IjAxNzAwMDAwMDAxIiwicHJlc2VudEFkZHJlc3MiOiJ0ZXN0LWFkZHJlc3MtMSIsImlhdCI6MTY4MTYwMDcxMSwiZXhwIjoxNjg0MTkyNzExfQ.iaBlUHDsW_gt-fJobi5v4D5ol2MVlUiNaqLCu41LxW4\"\n}"
 						},
 						{
 							"name": "Failed",
@@ -1188,7 +1188,74 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM\"\n}"
+									"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJ2IUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM\"\n}"
+								},
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"petshop.bd2023@gmail.com\",\n    \"password\": \"secretpassword\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/api/admin/login",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"admin",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "267"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10b-/1uR1JQVzoQlBennNTyovK/MOiQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 15 Jul 2023 17:42:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJIUz3I1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHNob3AuYmQyMDIzQGdtYWlsLmNvbSIsIm5hbWUiOiJuZXcgYWRtaW4iLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjg5NDQyOTY0LCJleHAiOjE2OTIwMzQ5NjR9.M9xw0YW5YJTWK-MIxEnZlrsvltfC9oQvT_ByeqaQe4I\"\n}"
 								}
 							]
 						}
@@ -1205,7 +1272,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV4CJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
 											"type": "string"
 										}
 									]
@@ -1379,7 +1446,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
+											"value": "eyJhbGciOiJIUzI1NiIsInR55cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b63JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
 											"type": "string"
 										}
 									]
@@ -1687,7 +1754,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLnFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
 											"type": "string"
 										}
 									]
@@ -1794,7 +1861,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IdkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
 											"type": "string"
 										}
 									]
@@ -1968,7 +2035,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6z0xZ7s5yYuDn-CyydXNDJ9rpGGM",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODI2MDg2NDMsImV4cCI6MTY4NTIwMDY0M30.eKM7pcDcdHIf9Tw6zOxZ7s5yYuDn-CyydXNDJ9rpGGM",
 											"type": "string"
 										}
 									]
@@ -2050,6 +2117,538 @@
 									"body": "{\n    \"message\": \"Category removed successfully.\"\n}"
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Get all orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IsnBldHN0b3JlLmFkbWluQGdtYWlsLmNvbSIsIm5hbWUiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE2ODk0NDI0OTAsImV4cCI6MTY5MjAzNDQ5MH0.as55g8TfMS8nTMpQvzdIUSwu75x6dn90RxzMw9nuueo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/orders/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/orders/",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"orders",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "8926"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"22de-sp0B2PVLAKU9fOIJv8itS4GXL2k\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 15 Jul 2023 17:35:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"_id\": \"64b2a2a51af16f99b7634a84\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2a2a51af16f99b7634a85\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2a2a51af16f99b7634a86\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T13:44:05.062Z\",\n            \"updatedAt\": \"2023-07-15T13:44:05.062Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2a2a81af16f99b7634a89\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2a2a81af16f99b7634a8a\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2a2a81af16f99b7634a8b\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T13:44:08.082Z\",\n            \"updatedAt\": \"2023-07-15T13:44:08.082Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2adea3cab6dcd4acc174c\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2adea3cab6dcd4acc174d\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2adea3cab6dcd4acc174e\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T14:32:10.456Z\",\n            \"updatedAt\": \"2023-07-15T14:32:10.456Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b6421bdf5b9ae5dff849\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b6421bdf5b9ae5dff84a\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b6421bdf5b9ae5dff84b\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:07:46.298Z\",\n            \"updatedAt\": \"2023-07-15T15:07:46.298Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b6540cc0e25b0a3a019d\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b6540cc0e25b0a3a019e\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b6540cc0e25b0a3a019f\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:08:04.029Z\",\n            \"updatedAt\": \"2023-07-15T15:08:04.029Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b66ddbf8049a029828e8\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401598b4568f5abf5b8320\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b66ddbf8049a029828e9\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b66ddbf8049a029828ea\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:08:29.942Z\",\n            \"updatedAt\": \"2023-07-15T15:08:29.942Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b69bdbf8049a029828ef\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"644013b4b4568f5abf5b831c\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b69bdbf8049a029828f0\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b69bdbf8049a029828f1\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:09:15.980Z\",\n            \"updatedAt\": \"2023-07-15T15:09:15.980Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b6c2e47294874c6bbc8a\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"644013b4b4568f5abf5b831c\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b6c2e47294874c6bbc8b\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b6c2e47294874c6bbc8c\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:09:54.249Z\",\n            \"updatedAt\": \"2023-07-15T15:09:54.249Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b6d8eeb9418cf012e415\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"644013b4b4568f5abf5b831c\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b6d8eeb9418cf012e416\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b6d8eeb9418cf012e417\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:10:16.570Z\",\n            \"updatedAt\": \"2023-07-15T15:10:16.570Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b6eeeeb9418cf012e41c\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b6eeeeb9418cf012e41d\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b6eeeeb9418cf012e41e\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:10:38.357Z\",\n            \"updatedAt\": \"2023-07-15T15:10:38.357Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b71180022ed0f58dabf4\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b71180022ed0f58dabf5\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b71180022ed0f58dabf6\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:11:13.903Z\",\n            \"updatedAt\": \"2023-07-15T15:11:13.903Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b74e50873d06c94a55ec\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b74e50873d06c94a55ed\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b74e50873d06c94a55ee\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:12:14.873Z\",\n            \"updatedAt\": \"2023-07-15T15:12:14.873Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b778fb39d88919b137ac\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b778fb39d88919b137ad\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b778fb39d88919b137ae\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:12:56.663Z\",\n            \"updatedAt\": \"2023-07-15T15:12:56.663Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b78a4679dd8772aa9d71\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b78a4679dd8772aa9d72\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b78a4679dd8772aa9d73\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:13:14.365Z\",\n            \"updatedAt\": \"2023-07-15T15:13:14.365Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b79fcdf0a8e370db205b\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b79fcdf0a8e370db205c\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b79fcdf0a8e370db205d\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:13:35.376Z\",\n            \"updatedAt\": \"2023-07-15T15:13:35.376Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b7df4212678a99113dab\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b7df4212678a99113dac\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b7df4212678a99113dad\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:14:39.046Z\",\n            \"updatedAt\": \"2023-07-15T15:14:39.046Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b7fa6f9c8aa03dadacf5\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b7fa6f9c8aa03dadacf6\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b7fa6f9c8aa03dadacf7\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:15:06.064Z\",\n            \"updatedAt\": \"2023-07-15T15:15:06.064Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b8258feddf7d186c3a69\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b8258feddf7d186c3a6a\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b8258feddf7d186c3a6b\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:15:49.113Z\",\n            \"updatedAt\": \"2023-07-15T15:15:49.113Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b8345c641e9fa8dc11e5\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b8345c641e9fa8dc11e6\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b8345c641e9fa8dc11e7\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:16:04.642Z\",\n            \"updatedAt\": \"2023-07-15T15:16:04.642Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b8b44e114420054e76d2\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b8b44e114420054e76d3\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b8b44e114420054e76d4\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:18:12.030Z\",\n            \"updatedAt\": \"2023-07-15T15:18:12.030Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2b95f57d767c45789fa87\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2b95f57d767c45789fa88\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2b95f57d767c45789fa89\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:21:03.376Z\",\n            \"updatedAt\": \"2023-07-15T15:21:03.376Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2bd5538a51cb2aa6e64e6\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2bd5538a51cb2aa6e64e7\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2bd5538a51cb2aa6e64e8\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:37:57.130Z\",\n            \"updatedAt\": \"2023-07-15T15:37:57.130Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2bd5ab00bc835b090dade\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2bd5ab00bc835b090dadf\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2bd5ab00bc835b090dae0\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:38:02.804Z\",\n            \"updatedAt\": \"2023-07-15T15:38:02.804Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2bd90403a0029ce5bb5e4\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 3,\n                    \"_id\": \"64b2bd90403a0029ce5bb5e5\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 2,\n                    \"_id\": \"64b2bd90403a0029ce5bb5e6\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:38:56.133Z\",\n            \"updatedAt\": \"2023-07-15T15:38:56.133Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2be4db01f5868eec92269\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 5,\n                    \"_id\": \"64b2be4db01f5868eec9226a\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 10,\n                    \"_id\": \"64b2be4db01f5868eec9226b\"\n                },\n                {\n                    \"productId\": \"644a9bf4c12f0708cf47dc0e\",\n                    \"quantity\": 10,\n                    \"_id\": \"64b2be4db01f5868eec9226c\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:42:05.453Z\",\n            \"updatedAt\": \"2023-07-15T15:42:05.453Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64b2bf3d8ad367da5a7ffb00\",\n            \"userEmail\": \"test2@gmail.com\",\n            \"order\": [\n                {\n                    \"productId\": \"64401638b4568f5abf5b8321\",\n                    \"quantity\": 5,\n                    \"_id\": \"64b2bf3d8ad367da5a7ffb01\"\n                },\n                {\n                    \"productId\": \"644014cfb4568f5abf5b831e\",\n                    \"quantity\": 10,\n                    \"_id\": \"64b2bf3d8ad367da5a7ffb02\"\n                },\n                {\n                    \"productId\": \"644a9bf4c12f0708cf47dc0e\",\n                    \"quantity\": 10,\n                    \"_id\": \"64b2bf3d8ad367da5a7ffb03\"\n                }\n            ],\n            \"createdAt\": \"2023-07-15T15:46:05.553Z\",\n            \"updatedAt\": \"2023-07-15T15:46:05.553Z\",\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"26 orders found\"\n}"
+								},
+								{
+									"name": "Fail. Need to login as admin first.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/orders/",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"orders",
+												""
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-iN12qRRzxosjIMEMILPhtZI8kKg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 15 Jul 2023 17:36:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Authentication failed.\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Place new order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGci0iJIUzI1NiIsIndR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6InRlc3QtdXNlci0yIiwibGFzdE5hbWUiOiJsYXN0LTIiLCJwcmVzZW50QWRkcmVzcyI6InRlc3QtYWRkcmVzcy0yIiwiaWF0IjoxNjg5NDI3NjI5LCJleHAiOjE2OTIwMTk2Mjl9.NCTh2y51SkI6rsYfGJC43XhJekYREU2WjsvZSmTgOI0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order\": [\n        {\n            \"id\": \"64401638b4568f5abf5b8321\",\n            \"quantity\": 5\n        },\n        {\n            \"id\": \"644014cfb4568f5abf5b831e\",\n            \"quantity\": 10\n        },\n        {\n            \"id\": \"644a9bf4c12f0708cf47dc0e\",\n            \"quantity\": 10\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/orders/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success. Order registered.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": [\n        {\n            \"id\": \"64401598b4568f5abf5b8320\",\n            \"quantity\": 3\n        },\n        {\n            \"id\": \"644014cfb4568f5abf5b831e\",\n            \"quantity\": 2\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/orders/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-9m2PUjp5VJbhcliZl7Wt1efnrp4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 13:44:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order insertion successful\"\n}"
+						},
+						{
+							"name": "Failed. Login first.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": [\n        {\n            \"id\": \"644013b4b4568f5abf5b831c\",\n            \"quantity\": 10\n        },\n        {\n            \"id\": \"6440144ab4568f5abf5b831d\",\n            \"quantity\": 1\n        },\n        {\n            \"id\": \"644014cfb4568f5abf5b831e\",\n            \"quantity\": 2\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/orders/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"register"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-iN12qRRzxosjIMEMILPhtZI8kKg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 13:26:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Authentication failed.\"\n}"
+						},
+						{
+							"name": "Failed. Product does not exist.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": [\n        {\n            \"id\": \"wrong id\",\n            \"quantity\": 3\n        },\n        {\n            \"id\": \"6440144ab4568f5abf5b831d\",\n            \"quantity\": 1\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/orders/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-SNfiiFsYzYOWPpBbGbcar0hH0MI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 13:40:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order insertion failed\"\n}"
+						},
+						{
+							"name": "Failed. Wrong product data.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": [\n        {\n            \"id\": \"64401598b4568f5abf5b8320\",\n            \"quantity\": 3\n        },\n        {\n            \"id\": \"644014cfb4568f5abf5b831e\",\n            \"quantity\": 0\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/orders/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-b2tSSdz0WucZ5gHL1+jF6ew9/qk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 13:41:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Malformed request. Incorrect product data in Order.\"\n}"
+						},
+						{
+							"name": "Failed. Invalid product id.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": [\n        {\n            \"id\": \"wrongid\",\n            \"quantity\": 3\n        },\n        {\n            \"id\": \"644014cfb4568f5abf5b831e\",\n            \"quantity\": 2\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/orders/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-waIsr9lzsO4356lXIxEy3DmhvK8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 15:21:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid ProdcutId found. Contact admin.\"\n}"
 						}
 					]
 				}
