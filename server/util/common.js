@@ -16,4 +16,14 @@ const isNumeric = (num) => {
   return (typeof num === "number" || (typeof num === "string" && num.trim() !== "")) && !isNaN(num);
 };
 
-module.exports = { hashPassword, isNumeric };
+function isEmpty(obj) {
+  for (const prop in obj) {
+    if (Object.hasOwn(obj, prop)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = { hashPassword, isNumeric, isEmpty };
