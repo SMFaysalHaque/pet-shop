@@ -1,8 +1,14 @@
+const path = require("path");
+const viewPath = path.join(__dirname, "./config/.env.dev").replace(/\\/g, "/");
+require("dotenv").config({ path: viewPath });
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const { hashPassword } = require("../util/common");
+const { mailer } = require("../util/mailer");
 const { findUserByQuery, insertUser } = require("../database/interfaces/userInterface");
+const { validateEmail } = require("../database/validate");
 
 const registerUser = async (req, res) => {
   try {
@@ -114,7 +120,34 @@ async function findUser(email) {
   return userQueryResult.data;
 }
 
+const contact = async (req, res) => {
+  try {
+    const { firstName, lastName, email, phone, presentAddress, comment } = req.body;
+    if (!email || !comment) {
+      return res.status(400).send({
+        message: "Input Field error",
+      });
+    }
+    validateEmail(email);
+    const content = `
+      <p>User with email: ${email} just posted the following comment.</p>
+      <p>${comment}</p>
+      <p>This email is auto generated. Do not reply to this email.</p>
+    `;
+    await mailer(content);
+    return res.status(200).send({
+      message: "Comment has been submitted",
+    });
+  } catch (e) {
+    console.error(e);
+    return res.status(e.errorCode ?? 500).send({
+      message: e.message ?? "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   login,
+  contact,
 };

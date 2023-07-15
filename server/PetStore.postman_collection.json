@@ -336,6 +336,170 @@
 							"body": "{\n    \"message\": \"Authentication failed. Please check email and password and try again.\"\n}"
 						}
 					]
+				},
+				{
+					"name": "ContactUs Mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"h.sharif@gmail.com\",\n    \"comment\": \"Where is the office of your pet-store?\",\n    \"firstName\": \"jam\",\n    \"lastName\": \"stack\",\n    \"phone\": \"01712312312\",\n    \"presentAddress\": \"house 01, Dhaka\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/contact",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"contact"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success. Required fields: email and comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"h.sharif@gmail.com\",\n    \"comment\": \"Where is the office of your pet-store?\",\n    \"firstName\": \"jam\",\n    \"lastName\": \"stack\",\n    \"phone\": \"01712312312\",\n    \"presentAddress\": \"house 01, Dhaka\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/contact",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"contact"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-bIvhk2cH4i7TNuLuFKOCtHz663c\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 09:42:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Comment has been submitted\"\n}"
+						},
+						{
+							"name": "Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"wrongmail.com\",\n    \"comment\": \"Where is the office of your pet-store?\",\n    \"firstName\": \"jam\",\n    \"lastName\": \"stack\",\n    \"phone\": \"01712312312\",\n    \"presentAddress\": \"house 01, Dhaka\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/contact",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"contact"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-/dTwlRlfB7KI9eib0mrwEpR15Ws\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jul 2023 09:44:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid Email\"\n}"
+						}
+					]
 				}
 			]
 		},
