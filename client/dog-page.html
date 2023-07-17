@@ -55,7 +55,7 @@
                                         >Home</a
                                     >
                                 </li>
-        
+
                                 <li class="nav-item dropdown">
                                     <a
                                         class="nav-link dropdown-toggle"
@@ -98,13 +98,13 @@
                   </li> -->
                                     </ul>
                                 </li>
-        
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="./contact-us.html"
                                         >Contact Us</a
                                     >
                                 </li>
-        
+
                                 <!-- <li class="nav-item">
               <a
                 class="nav-link disabled"
@@ -124,12 +124,12 @@
                                     >
                                 </li>
                                 <!-- cart button end -->
-        
+
                                 <!-- search area start -->
                                 <li class="nav-item" style="width: 300px">
                                     <div class="nav-link d-flex">
                                         <input
-                                        id="searchText"
+                                            id="searchText"
                                             class="form-control me-2"
                                             type="search"
                                             placeholder="Search"
@@ -145,7 +145,7 @@
                                     </div>
                                 </li>
                                 <!-- search area end -->
-        
+
                                 <!-- sign in and sign up button area start -->
                                 <li id="signIn-signUp" class="nav-item">
                                     <a
@@ -164,22 +164,28 @@
                                 <!-- sign in and sign up button area end -->
 
                                 <!-- sign in and sign up button area start -->
-                                <li id="name-logout" class="nav-item" style="display: none;">
+                                <li
+                                    id="name-logout"
+                                    class="nav-item"
+                                    style="display: none"
+                                >
                                     <div
-                                    id="userName"
+                                        id="userName"
                                         class="btn btn-outline-success mx-1"
-                                        >Name</div
                                     >
+                                        Name
+                                    </div>
                                     <button
-                                    onclick="logOutClickHandler()"
-                                    id="log-out"
+                                        onclick="logOutClickHandler()"
+                                        id="log-out"
                                         class="btn btn-outline-primary mx-1"
                                         role="button"
-                                        >Log Out</button
                                     >
+                                        Log Out
+                                    </button>
                                 </li>
                                 <!-- sign in and sign up button area end -->
-        
+
                                 <!-- sign up button start -->
                                 <li class="nav-item"></li>
                                 <!-- sign up button end -->
@@ -193,176 +199,186 @@
 
         <!-- main start here -->
         <main class="container">
-            <!-- carousel area start -->
-            <div
-                id="carouselExampleIndicators"
-                class="carousel slide"
-                data-bs-ride="carousel"
-            >
-                <div class="carousel-indicators">
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
-                    ></button>
-                </div>
-                <div class="carousel-inner my-3">
-                    <div class="carousel-item active">
-                        <div
-                            class="slide-card1 row row-cols-2 row-cols-lg-4 gy-2 h-25"
-                        >
-                            <!-- code in dogProducts.js file (carousel part) -->
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div
-                            class="slide-card2 row row-cols-2 row-cols-lg-4 gy-2 h-25"
-                        >
-                            <!-- code in dogProducts.js file (carousel part) -->
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div
-                            class="slide-card3 row row-cols-2 row-cols-lg-4 gy-2 h-25"
-                        >
-                            <!-- code in dogProducts.js file (carousel part) -->
-                        </div>
-                    </div>
-                </div>
-                <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
+            <div id="body">
+                <!-- carousel area start -->
+                <div
+                    id="carouselExampleIndicators"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
                 >
-                    <span
-                        class="carousel-control-prev-icon"
-                        aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
+                    <div class="carousel-indicators">
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true"
+                            aria-label="Slide 1"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="2"
+                            aria-label="Slide 3"
+                        ></button>
+                    </div>
+                    <div class="carousel-inner my-3">
+                        <div class="carousel-item active">
+                            <div
+                                class="slide-card1 row row-cols-2 row-cols-lg-4 gy-2 h-25"
+                            >
+                                <!-- code in dogProducts.js file (carousel part) -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div
+                                class="slide-card2 row row-cols-2 row-cols-lg-4 gy-2 h-25"
+                            >
+                                <!-- code in dogProducts.js file (carousel part) -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div
+                                class="slide-card3 row row-cols-2 row-cols-lg-4 gy-2 h-25"
+                            >
+                                <!-- code in dogProducts.js file (carousel part) -->
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev"
+                    >
+                        <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next"
+                    >
+                        <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- carousel area end -->
+
+                <!-- dog product area start -->
+                <div class="row my-3">
+                    <!-- filter area start -->
+                    <div class="col-12 col-lg-4">
+                        <div class="ps-3">
+                            <h3 class="fw-bolder my-3">Filter</h3>
+                            <div class="my-3">
+                                <h5 class="mb-3">Amount Range</h5>
+                                <div class="form-check fs-5 my-2">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="flexCheckDefault"
+                                    >
+                                        500tk - 1000tk
+                                    </label>
+                                </div>
+                                <div class="form-check fs-5 my-2">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="flexCheckDefault"
+                                    >
+                                        1001tk - 1500tk
+                                    </label>
+                                </div>
+                                <div class="form-check fs-5 my-2">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="flexCheckDefault"
+                                    >
+                                        1501tk - 2000tk
+                                    </label>
+                                </div>
+                                <div class="form-check fs-5 my-2">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="flexCheckDefault"
+                                    >
+                                        2001tk - 2500tk
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- filter area end -->
+
+                    <!-- dog's product area start -->
+                    <div class="col-12 col-lg-8">
+                        <div class="px-1">
+                            <h3 class="fw-bolder my-2">Dog Products</h3>
+                            <div
+                                class="card-main row row-cols-2 row-cols-md-3 my-2 g-2 h-25"
+                            >
+                                <!-- code in dogProducts.js file -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- dog's product area end -->
+                </div>
+                <!-- dog product area end -->
+            </div>
+
+            <!-- search result area start here -->
+            <div id="search-result-area">
+                <h1
+                    id="search"
+                    class="text-center my-5 fw-bolder"
+                    style="visibility: hidden"
                 >
-                    <span
-                        class="carousel-control-next-icon"
-                        aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <!-- carousel area end -->
-
-            <!-- search result start -->
-            <div
-                id=""
-                class="search-result row row-cols-2 row-cols-lg-4 my-3 g-2 h-25"
-            >
-                <!-- code in js file -->
-            </div>
-            <!-- search result end -->
-
-            <!-- dog product area start -->
-            <div class="row my-3">
-                <!-- filter area start -->
-                <div class="col-12 col-lg-4">
-                    <div class="ps-3">
-                        <h3 class="fw-bolder my-3">Filter</h3>
-                        <div class="my-3">
-                            <h5 class="mb-3">Amount Range</h5>
-                            <div class="form-check fs-5 my-2">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="flexCheckDefault"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="flexCheckDefault"
-                                >
-                                    500tk - 1000tk
-                                </label>
-                            </div>
-                            <div class="form-check fs-5 my-2">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="flexCheckDefault"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="flexCheckDefault"
-                                >
-                                    1001tk - 1500tk
-                                </label>
-                            </div>
-                            <div class="form-check fs-5 my-2">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="flexCheckDefault"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="flexCheckDefault"
-                                >
-                                    1501tk - 2000tk
-                                </label>
-                            </div>
-                            <div class="form-check fs-5 my-2">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="flexCheckDefault"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="flexCheckDefault"
-                                >
-                                    2001tk - 2500tk
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    Search Result
+                </h1>
+                <div
+                    class="search-result row row-cols-2 row-cols-md-4 my-3 g-2 h-25"
+                >
+                    <!-- code in js file -->
                 </div>
-                <!-- filter area end -->
-
-                <!-- dog's product area start -->
-                <div class="col-12 col-lg-8">
-                    <div class="px-1">
-                        <h3 class="fw-bolder my-2">Dog Products</h3>
-                        <div
-                            class="card-main row row-cols-2 row-cols-md-3 my-2 g-2 h-25"
-                        >
-                            <!-- code in dogProducts.js file -->
-                        </div>
-                    </div>
-                </div>
-                <!-- dog's product area end -->
             </div>
-            <!-- dog product area end -->
+            <!-- search result area end here -->
         </main>
         <!-- main end here -->
 

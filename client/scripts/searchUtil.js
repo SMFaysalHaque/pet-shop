@@ -1,4 +1,6 @@
 async function searchClickHandler() {
+    document.getElementById('body').style.display = "none";
+    document.getElementById('search').style.visibility = "visible";
     let searchText = document.getElementById("searchText").value;
     searchText = searchText.trim();
     if (searchText.length === 0) {
@@ -11,10 +13,12 @@ async function searchClickHandler() {
         return name.includes(searchText.toLowerCase());
     });
     console.log("KKK:", result);
+    localStorage.setItem('result', JSON.stringify(result))
 
     for (let i = 0; i < result.length; i++) {
         let item = result[i];
         console.log("QQQ:", item);
+        // let searchResult = [];
         let searchDiv = document.createElement("div");
         searchDiv.innerHTML = `
                     <div class="col">
@@ -51,9 +55,7 @@ async function searchClickHandler() {
                         </div>
                     </div>
                     `;
-        document
-            .getElementsByClassName("search-result")[0]
-            .appendChild(searchDiv);
+                    let a = document.getElementsByClassName("search-result")[0].appendChild(searchDiv);
     }
 }
 function cartPage() {
