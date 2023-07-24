@@ -1,3 +1,38 @@
+function addCategoryApi() {
+    const token = localStorage.getItem("admin");
+    if (!token) {
+        alert("Please sign in!!!");
+        window.open("http://127.0.0.1:5500/client/admin.html", "_self");
+        return;
+    }
+    const config = {
+        headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const categoryName = document.getElementById("categoryName").value;
+    const bodyParameters = {
+        name: categoryName,
+        imageUrl: "test.com",
+    };
+
+    axios.post(
+        "http://localhost:3000/api/products/categories",
+        bodyParameters,
+        config
+    )
+        .then(function (response) {
+            console.log("xxx:", response.data);
+            if (response.status === 200) {
+                addCategory()
+            }
+        })
+        .catch(function(error) {
+
+            console.error(error);
+            alert (error.response.data.message)
+          });
+}
+
 // Array to store categories and their foods
 let categories = [];
 
