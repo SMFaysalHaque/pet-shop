@@ -78,7 +78,6 @@ const getCategories = async (req, res) => {
 const getProductsOfSpecificCategory = async (req, res) => {
   queryData = { category: req.params.category };
   const productQueryResult = await findProductsByQuery(queryData);
-
   let statusCode = 200;
   let message = productQueryResult.message;
   if (productQueryResult.status === "EXCEPTION") {
