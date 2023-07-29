@@ -46,7 +46,7 @@ async function searchClickHandler() {
                                     <button
                                         type="button"
                                         class="btn btn-primary"
-                                        onclick="cartPage()"
+                                        onclick="cartPage('${item.name}', '${item._id}', '${item.price}', '${item.imageUrl}')"
                                     >
                                         Add Cart
                                     </button>
@@ -58,6 +58,4 @@ async function searchClickHandler() {
                     let a = document.getElementsByClassName("search-result")[0].appendChild(searchDiv);
     }
 }
-function cartPage() {
-    window.open("http://127.0.0.1:5500/client/cart-page.html", "_self");
-}
+

@@ -112,7 +112,7 @@ async function fetchData() {
                 let singleProduct = document.createElement("div");
                 console.log("DETAIL:",detail);
                 singleProduct.innerHTML = `
-          <div onclick="detail('${id}')" class="col">
+          <div class="col">
             <div class="card">
               <img
                 src="${card.imageUrl}"
@@ -120,22 +120,24 @@ async function fetchData() {
                 alt="..."
               />
               <div class="card-body">
-                <h5 
-                  class="card-title"
-                  style="
-                    height: 70px;
-                    overflow: hidden;
-                  "
-                >${card.name}</h5>
-                <p
-                  class="card-text"
-                  style="
-                    height: 190px;
-                    overflow: hidden;
-                  "
-                >
-                  ${card.description}
-                </p>
+                <div onclick="detail('${id}')">
+                  <h5 
+                    class="card-title"
+                    style="
+                      height: 70px;
+                      overflow: hidden;
+                    "
+                  >${card.name}</h5>
+                  <p
+                    class="card-text"
+                    style="
+                      height: 190px;
+                      overflow: hidden;
+                    "
+                  >
+                    ${card.description}
+                  </p>
+                </div>
                 <div
                   class="cart-button-price-area d-flex flex-column flex-md-row align-content-center"
                 >
@@ -146,7 +148,7 @@ async function fetchData() {
                     type="button"
                     class="btn btn-primary"
                     id="cart-btn"
-                    onclick="cartPage(${card.name}, ${card.description}, ${card.price}, ${card.imageUrl})"
+                    onclick="cartPage('${card.name}', '${id}', '${card.price}', '${card.imageUrl}')"
                   >
                     Add Cart
                   </button>
@@ -270,57 +272,4 @@ document.getElementById("all-home-product").appendChild(homeAllProducts);
 //         // always executed
 //     });
 
-function detail(id) {
-  console.log("aaaa", id);
-  document.getElementById("body").style.display = "none";
-  document.getElementById("search-result-area").style.display = "none";
-  document.getElementById("productDetail").style.visibility = "visible";
 
-  axios
-      .get(`http://localhost:3000/api/products/${id}`)
-      .then(function (response) {
-          // handle success
-          const product = response.data.data;
-          console.log("AAA:", product);
-          let cardDogDiv = document.createElement("div");
-          cardDogDiv.innerHTML = `
-                              <div class=" row border border-2 align-items-center justify-content-lg-around">
-                                  <div class="col-12 col-lg-2" style="width: 300px; height: 250px;">
-                                      <img class="w-100 h-100" src="${product.imageUrl}" alt="" srcset="">
-                                  </div>
-                                  <div class="col-12 col-lg-9 py-3">
-                                      <h2>Product Name: ${product.name}</h2>
-                                      <h5>Product Price: ${product.price} tk</h5>
-                                      <p><span class="fw-bolder fs-5">Description: </span> ${product.description}</p>
-                                      <div>
-                                          <button class="btn btn-primary w-25" type="submit">Add Cart</button>
-                                      </div>    
-                                  </div>
-                              </div>
-                                      `;
-          document
-              .getElementsByClassName("product-detail")[0]
-              .appendChild(cardDogDiv);
-      })
-      .catch(function (error) {
-          // handle error
-          console.log(error);
-      })
-      .finally(function () {
-          // always executed
-      });
-}
-
-function cartPage(name, description, price, image) {
-  let cartList = [] ? localStorage.getItem("cartList", cartList) : ""
-  let singleCart = {
-    name: name,
-    description: description,
-    price: price,
-    image: image
-  }
-  cartList.push(singleCart)
-  localStorage.setItem("cartList", cartList)
-  
-    window.open("http://127.0.0.1:5500/client/cart-page.html", "_self");
-}
