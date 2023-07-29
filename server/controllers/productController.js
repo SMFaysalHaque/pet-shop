@@ -113,6 +113,7 @@ const createProduct = async (req, res) => {
     if (productInsertionResult.status === "OK") {
       return res.status(200).send({
         message: "Product insertion successful.",
+        product: productInsertionResult
       });
     } else {
       return res.status(400).send({

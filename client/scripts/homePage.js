@@ -102,16 +102,17 @@ async function fetchData() {
                 `http://localhost:3000/api/products/categories/${categoryName}`
             );
             console.log("API RESPONSE:", response.data.data);
-            let productDetail = response.data.data;
+            let products = response.data.data;
 
             let categoryProductsAll = document.createElement("div");
             let categoryProducts = document.createElement("div");
-            productDetail.map((card, i) => {
+            products.map((card, i) => {
                 let id = card._id;
                 // dog's product card details start
                 let singleProduct = document.createElement("div");
+                console.log("DETAIL:",detail);
                 singleProduct.innerHTML = `
-          <div onclick="productDetail('${id}')" class="col">
+          <div onclick="detail('${id}')" class="col">
             <div class="card">
               <img
                 src="${card.imageUrl}"
@@ -145,7 +146,7 @@ async function fetchData() {
                     type="button"
                     class="btn btn-primary"
                     id="cart-btn"
-                    onclick="cartPage()"
+                    onclick="cartPage(${card.name}, ${card.description}, ${card.price}, ${card.imageUrl})"
                   >
                     Add Cart
                   </button>
@@ -154,6 +155,7 @@ async function fetchData() {
             </div>
           </div>
           `;
+          // document.getElementById ("btnsave").addEventListener ("click", resetEmotes, false);
                 if (i < 4) {
                     categoryProducts.appendChild(singleProduct);
                 }
@@ -188,6 +190,8 @@ async function fetchData() {
         }
     }
 }
+
+
 
 // Call the fetchData function to initiate the API calls and wait for them to finish
 await fetchData();
@@ -266,47 +270,57 @@ document.getElementById("all-home-product").appendChild(homeAllProducts);
 //         // always executed
 //     });
 
-function productDetail(id) {
-    console.log("aaaa", id);
-    document.getElementById("body").style.display = "none";
-    document.getElementById("search-result-area").style.display = "none";
-    document.getElementById("productDetail").style.visibility = "visible";
+function detail(id) {
+  console.log("aaaa", id);
+  document.getElementById("body").style.display = "none";
+  document.getElementById("search-result-area").style.display = "none";
+  document.getElementById("productDetail").style.visibility = "visible";
 
-    axios
-        .get(`http://localhost:3000/api/products/${id}`)
-        .then(function (response) {
-            // handle success
-            const product = response.data.data;
-            console.log("AAA:", product);
-            let cardDogDiv = document.createElement("div");
-            cardDogDiv.innerHTML = `
-                                <div class=" row border border-2 align-items-center justify-content-lg-around">
-                                    <div class="col-12 col-lg-2" style="width: 300px; height: 250px;">
-                                        <img class="w-100 h-100" src="${product.imageUrl}" alt="" srcset="">
-                                    </div>
-                                    <div class="col-12 col-lg-9 py-3">
-                                        <h2>Product Name: ${product.name}</h2>
-                                        <h5>Product Price: ${product.price} tk</h5>
-                                        <p><span class="fw-bolder fs-5">Description: </span> ${product.description}</p>
-                                        <div>
-                                            <button class="btn btn-primary w-25" type="submit">Add Cart</button>
-                                        </div>    
-                                    </div>
-                                </div>
-                                        `;
-            document
-                .getElementsByClassName("product-detail")[0]
-                .appendChild(cardDogDiv);
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .finally(function () {
-            // always executed
-        });
+  axios
+      .get(`http://localhost:3000/api/products/${id}`)
+      .then(function (response) {
+          // handle success
+          const product = response.data.data;
+          console.log("AAA:", product);
+          let cardDogDiv = document.createElement("div");
+          cardDogDiv.innerHTML = `
+                              <div class=" row border border-2 align-items-center justify-content-lg-around">
+                                  <div class="col-12 col-lg-2" style="width: 300px; height: 250px;">
+                                      <img class="w-100 h-100" src="${product.imageUrl}" alt="" srcset="">
+                                  </div>
+                                  <div class="col-12 col-lg-9 py-3">
+                                      <h2>Product Name: ${product.name}</h2>
+                                      <h5>Product Price: ${product.price} tk</h5>
+                                      <p><span class="fw-bolder fs-5">Description: </span> ${product.description}</p>
+                                      <div>
+                                          <button class="btn btn-primary w-25" type="submit">Add Cart</button>
+                                      </div>    
+                                  </div>
+                              </div>
+                                      `;
+          document
+              .getElementsByClassName("product-detail")[0]
+              .appendChild(cardDogDiv);
+      })
+      .catch(function (error) {
+          // handle error
+          console.log(error);
+      })
+      .finally(function () {
+          // always executed
+      });
 }
 
-function cartPage() {
+function cartPage(name, description, price, image) {
+  let cartList = [] ? localStorage.getItem("cartList", cartList) : ""
+  let singleCart = {
+    name: name,
+    description: description,
+    price: price,
+    image: image
+  }
+  cartList.push(singleCart)
+  localStorage.setItem("cartList", cartList)
+  
     window.open("http://127.0.0.1:5500/client/cart-page.html", "_self");
 }
