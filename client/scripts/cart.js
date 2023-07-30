@@ -1,9 +1,17 @@
-let cartList = JSON.parse(localStorage.getItem("cartList"))
+let cartList = JSON.parse(localStorage.getItem("cartList"));
 console.log("cartList:", cartList);
+const token = localStorage.getItem("userToken");
+
+let subtotal = 0;
+let total = 0;
+
+let cartBody = document.getElementById("cart-body")
 
 cartList.map((item, i) => {
-  let itemDiv1 = document.createElement("div");
-            itemDiv1.innerHTML = `
+    subtotal = parseFloat(item.price) + subtotal;
+
+    let itemDiv1 = document.createElement("div");
+    itemDiv1.innerHTML = `
             <!-- FFFFFF -->
             <div
                 id="delete${i}"
@@ -21,14 +29,14 @@ cartList.map((item, i) => {
                 </div>
                 <div class="col-6 col-lg-3 py-1">
                     <h5 class="fw-bold">${item.name}</h5>
-                    <h6>${item.price} tk</h6>
+                    <h6 id="itemPrice${i}">${item.price} tk</h6>
                 </div>
                 <div
                     class="col-3 col-lg-2 d-flex justify-content-evenly border rounded-pill"
                     style="width: 95px; height: 33px"
                 >
                     <p onclick="minus(${i})" class="fs-5" style="cursor: pointer;">-</p>
-                    <p id="quantity${i}" class="fs-5">0</p>
+                    <p id="quantity${i}" class="fs-5">${item.qty}</p>
                     <p onclick="plus(${i})" class="fs-5" style="cursor: pointer;">+</p>
                 </div>
                 <div>
@@ -51,119 +59,96 @@ cartList.map((item, i) => {
             </div>
             <!-- FFFFFF -->
                     `;
-                    document
-                    .getElementById("cart-body")
-                    .appendChild(itemDiv1);
-})
+    cartBody.appendChild(itemDiv1);
+});
 
+// showing subtotal:
+document.getElementById("subCount").innerHTML = subtotal;
+
+// total calculation:
+const shipping = document.getElementById("shipping").innerHTML;
+total = subtotal + parseFloat(shipping);
+document.getElementById("total").innerHTML = total;
 
 // JavaScript
-function plus(i){
-  let quantity = document.getElementById(`quantity${i}`).innerHTML;
+function plus(i) {
+    let quantity = document.getElementById(`quantity${i}`).innerHTML;
+    let itemPrice = document.getElementById(`itemPrice${i}`).innerHTML;
+    subtotal = parseFloat(itemPrice) + subtotal;
+    document.getElementById("subCount").innerHTML = subtotal;
+    total = subtotal + parseFloat(shipping);
+    document.getElementById("total").innerHTML = total;
     quantity++;
     updateQuantity(i, quantity);
 }
-function minus(i){
-  let quantity = document.getElementById(`quantity${i}`).innerHTML;
-    if (quantity > 0) {
-      quantity--;
-      updateQuantity(i, quantity);
+function minus(i) {
+    let quantity = document.getElementById(`quantity${i}`).innerHTML;
+    let itemPrice = document.getElementById(`itemPrice${i}`).innerHTML;
+
+    if (quantity > 1) {
+        subtotal = subtotal - parseFloat(itemPrice);
+        document.getElementById("subCount").innerHTML = subtotal;
+
+        total = subtotal + parseFloat(shipping);
+        document.getElementById("total").innerHTML = total;
+
+        quantity--;
+        updateQuantity(i, quantity);
     }
 }
 function updateQuantity(i, quantity) {
-  const quantityElement = document.getElementById(`quantity${i}`);
-  quantityElement.textContent = quantity;
+    cartList[i].qty = quantity;
+    localStorage.setItem("cartList", JSON.stringify(cartList));
+    const quantityElement = document.getElementById(`quantity${i}`);
+    quantityElement.textContent = quantity;
 }
 
+function confirmOder() {
+    if (!token) {
+        alert("Please sign in!!!");
+        window.open("http://127.0.0.1:5500/client/sign-in.html", "_self");
+        return;
+    }
+    const config = {
+        headers: { Authorization: `Bearer ${token}` },
+    };
 
+    let orders = [];
 
+    cartList.map((item, i) => {
+        var order = {
+            id: item.id,
+            quantity: item.qty,
+        };
+        orders.push(order);
+    });
 
+    console.log(orders);
 
+    const bodyParameters = {
+        order: orders,
+    };
 
+    axios
+        .post(
+            "http://localhost:3000/api/orders/register",
+            bodyParameters,
+            config
+        )
+        .then(function (response) {
+            // handle success
+            console.log("res", response);
+            localStorage.removeItem(cartList);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Get the quantity buttons and subtotal element
-// const minusButton = document.querySelector('.col-lg-2 .fs-5:nth-child(1)');
-// const plusButton = document.querySelector('.col-lg-2 .fs-5:nth-child(3)');
-// const quantityElement = document.querySelector('.col-lg-2 .fs-5:nth-child(2)');
-// const subtotalElement = document.querySelector('.d-flex.justify-content-between.border-bottom.p-2 h6:nth-child(2)');
-// const shippingElement = document.querySelector('.d-flex.justify-content-between.border-bottom.p-2:nth-child(3) h6:nth-child(2)');
-// const totalElement = document.querySelector('.d-flex.justify-content-between.p-2 h6:nth-child(2)');
-
-// // Set initial values
-// let quantity = 0;
-// let price = 100;
-// let shipping = 10;
-
-// // Function to update the cart calculations
-// function updateCart() {
-//   const subtotal = quantity * price;
-//   const total = subtotal + shipping;
-
-//   // Update the HTML elements
-//   quantityElement.textContent = quantity;
-//   subtotalElement.textContent = subtotal;
-//   shippingElement.textContent = shipping;
-//   totalElement.textContent = total;
-// }
-
-// // Event listener for minus button
-// minusButton.addEventListener('click', function() {
-//   if (quantity > 0) {
-//     quantity--;
-//     updateCart();
-//   }
-// });
-
-// // Event listener for plus button
-// plusButton.addEventListener('click', function() {
-//   quantity++;
-//   updateCart();
-// });
-
-// // Initial cart update
-// updateCart();
+function deleteCart(i) {
+    cartBody[i].splice(i, 1);
+}

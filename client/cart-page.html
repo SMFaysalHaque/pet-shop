@@ -214,24 +214,23 @@
                                 class="d-flex justify-content-between border-bottom p-2"
                             >
                                 <h6 class="w-50">
-                                    Product Name: ABCD<br />
-                                    Quantity: 02
+                                    Subtotal:
                                 </h6>
-                                <h6>Subtotal: 0000 tk</h6>
+                                <h6><span id="subCount">0000</span> tk</h6> 
                             </div>
                             <div
                                 class="d-flex justify-content-between border-bottom p-2"
                             >
                                 <h6>Shipping:</h6>
-                                <h6>0000 tk</h6>
+                                <h6><span id="shipping">100</span> tk</h6>
                             </div>
                             <div class="d-flex justify-content-between p-2">
                                 <h6>Total:</h6>
-                                <h6>0000 tk</h6>
+                                <h6><span id="total">0000</span> tk</h6>
                             </div>
                         </div>
                         <div class="my-2 text-end">
-                            <button class="btn-success fw-bold">
+                            <button onclick="confirmOder()" class="btn-success fw-bold">
                                 Confirm Oder
                             </button>
                         </div>

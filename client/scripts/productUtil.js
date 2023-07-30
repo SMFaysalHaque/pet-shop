@@ -51,6 +51,7 @@ function cartPage(name, id, price, image) {
         id: id,
         price: price,
         image: image,
+        qty: 1,
     };
     cartList.push(singleCart);
     console.log("PPPP:", cartList);

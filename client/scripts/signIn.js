@@ -37,8 +37,9 @@ form.addEventListener('submit', function(event) {
       if (response.status === 200) {
         alert("Login successful!!!")
         localStorage.setItem('isLoggedIn', true);
-        const name = getUserNameFromToken(response.data.token)
-        localStorage.setItem('userName', name);
+        const username = getUserNameFromToken(response.data.token);
+        localStorage.setItem('userName', username);
+        localStorage.setItem('userToken', response.data.token);
         window.open("http://127.0.0.1:5500/client/home.html","_self")
         // sign up and sign in button will be hidden and logout-name will show.
       }
