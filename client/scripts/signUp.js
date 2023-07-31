@@ -79,3 +79,29 @@ form.addEventListener('submit', function(event) {
       console.error(error);
     });
 });
+
+axios
+    .get("http://localhost:3000/api/products/categories")
+    .then(function (response) {
+        // handle success
+        console.log("pppp", response.data.data);
+        let allCategories = response.data.data;
+
+        allCategories.map((category, i) => {
+            let itemDiv1 = document.createElement("li");
+            itemDiv1.innerHTML = `
+                <a
+                class="dropdown-item"
+                href="http://127.0.0.1:5500/client/product.html?name=${category.name}"
+                >
+                ${category.name} Product
+                </a>
+                    `;
+            document.getElementById("drop-down").appendChild(itemDiv1);
+        });
+    })
+
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    });

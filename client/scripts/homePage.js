@@ -212,7 +212,6 @@ axios
                 <a
                 class="dropdown-item"
                 href="http://127.0.0.1:5500/client/product.html?name=${category.name}"
-                onclick="categoryPage()"
                 >
                 ${category.name} Product
                 </a>
@@ -225,8 +224,3 @@ axios
         // handle error
         console.log(error);
     });
-
-
-function categoryPage() {
-    console.log("Product index:");
-}

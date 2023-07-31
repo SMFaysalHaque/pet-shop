@@ -19,10 +19,7 @@ function detail(id) {
                                     <div class="col-12 col-lg-9 py-3">
                                         <h2>Product Name: ${product.name}</h2>
                                         <h5>Product Price: ${product.price} tk</h5>
-                                        <p><span class="fw-bolder fs-5">Description: </span> ${product.description}</p>
-                                        <div>
-                                            <button class="btn btn-primary w-25" type="submit">Add Cart</button>
-                                        </div>    
+                                        <p><span class="fw-bolder fs-5">Description: </span> ${product.description}</p>    
                                     </div>
                                 </div>
                                         `;

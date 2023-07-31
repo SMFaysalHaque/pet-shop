@@ -63,7 +63,10 @@ function addFoodApi(categoryIndex) {
     );
     // const foodPhoto = document.getElementById(`foodPhoto${categoryIndex}`)
     //     .files[0];
-    const foodPhoto = "https://i.ibb.co/yNggbCs/Bonnie-Dog-Food-Beef-2-5kg.jpg";
+    const foodPhoto = document.getElementById(
+        `foodPhoto${categoryIndex}`
+    ).value; 
+    console.log("photo:", foodPhoto);
 
     // Check if any value is empty
     if (
@@ -71,7 +74,7 @@ function addFoodApi(categoryIndex) {
         foodDescription.trim() === "" ||
         isNaN(foodPrice) ||
         isNaN(foodInventory) ||
-        foodPhoto === undefined
+        foodPhoto.trim() === ""
     ) {
         alert("Please fill in all the food details!!!");
         return;
@@ -190,7 +193,7 @@ function updateCategoryList() {
         <input type="text" id="foodDescription${index}" placeholder="Food Description">
         <input type="number" id="foodPrice${index}" placeholder="Food Price">
         <input type="number" id="foodInventory${index}" placeholder="Food Inventory">
-        <input type="file" id="foodPhoto${index}" accept="image/*">
+        <input type="text" id="foodPhoto${index}" placeholder="imageUrl">
         <button class="btn btn-primary" onclick="addFoodApi(${index})">Add Food</button>
         <button class="btn btn-danger" onclick="deleteCategoryApi(${index})">Delete Category</button>
       </div>

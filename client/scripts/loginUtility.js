@@ -26,4 +26,5 @@ function logOutClickHandler() {
     localStorage.setItem('isLoggedIn', false);
     logOutUser()
     localStorage.setItem('userName', "");
+    localStorage.setItem('userToken', "");
 }
