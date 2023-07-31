@@ -70,32 +70,9 @@
                                     <ul
                                         class="dropdown-menu"
                                         aria-labelledby="navbarDropdown"
+                                        id="drop-down"
                                     >
-                                        <li>
-                                            <a
-                                                class="dropdown-item"
-                                                href="./dog-page.html"
-                                                >Dog's Product</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a
-                                                class="dropdown-item"
-                                                href="./cat-page.html"
-                                                >Cat's Product</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a
-                                                class="dropdown-item"
-                                                href="./bird-page.html"
-                                                >Bird's Product</a
-                                            >
-                                        </li>
-                                        <!-- <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li> -->
+                                        <!-- code in js file -->
                                     </ul>
                                 </li>
 
@@ -117,7 +94,7 @@
                                 <!-- cart button start -->
                                 <li class="nav-item">
                                     <a
-                                        class="btn btn-primary"
+                                        class="btn btn-primary px-3"
                                         href="./cart-page.html"
                                         role="button"
                                         >Cart List</a
@@ -296,8 +273,9 @@
         <script src="../server/node_modules/axios/dist/axios.min.js"></script>
         <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
         <script src="./scripts/cart.js"></script>
-        <script src="../client/scripts/homePage.js"></script>
+        <script type="module" src="../client/scripts/homePage.js"></script>
         <script src="../client/scripts/loginUtility.js"></script>
+        <script src="../client/scripts/product.js"></script>
         <script src="../client/scripts/searchUtil.js"></script>
     </body>
 </html>

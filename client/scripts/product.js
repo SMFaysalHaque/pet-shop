@@ -1,7 +1,8 @@
-const categoryName = new URLSearchParams(window.location.search).get('name');
+const categoryName = new URLSearchParams(window.location.search).get("name");
 console.log("gggg", categoryName);
 // Make a request for a user with a given ID
-axios.get(`http://localhost:3000/api/products/categories/${categoryName}`)
+axios
+    .get(`http://localhost:3000/api/products/categories/${categoryName}`)
     .then(function (response) {
         // handle success
         console.log("API RESPONSE:", response.data.data);
@@ -148,10 +149,90 @@ axios.get(`http://localhost:3000/api/products/categories/${categoryName}`)
         // always executed
     });
 
-    function filter(){
-        
-    }
+function filterClicked(min, max) {
+    document.getElementById("all-product").style.display = "none";    
+    document.getElementById("filtered-product").style.display = "block"; 
+    document.getElementById("filtered-product").innerHTML = "";   
 
-    function cartPage(){
-        window.open("http://127.0.0.1:5500/client/cart-page.html","_self")
-    }
+    console.log("Filter Clicked", min, max);
+    axios
+        .get(`http://localhost:3000/api/products/?min=${min}&max=${max}`)
+        .then(function (response) {
+            // handle success
+            console.log(response);
+
+            console.log("API RESPONSE:", response.data.data);
+            let filterProduct = response.data.data;
+            console.log("filterProduct", filterProduct);
+
+            filterProduct.map((card, i) => {
+
+                if(card.category === categoryName){
+                    // dog's product card details start
+                let cardDiv = document.createElement("div");
+                cardDiv.innerHTML = `
+                        <div class="col">
+                            <div class="card">
+                                <!-- code in dogProducts.js file -->
+                                <img
+                                    src="${card.imageUrl}"
+                                    class="card-img-top w-100 h-100"
+                                    alt="..."
+                                />
+                                <div class="card-body">
+                                    <h5 
+                                    class="card-title"
+                                    style="
+                                            height: 70px;
+                                            overflow: hidden;
+                                        "
+                                    >${card.name}</h5>
+                                    <p
+                                        class="card-text"
+                                        style="
+                                            height: 190px;
+                                            overflow: hidden;
+                                        "
+                                    >
+                                        ${card.description}
+                                    </p>
+                                    <div
+                                        class="cart-button-price-area d-flex flex-column flex-md-row align-content-center"
+                                    >
+                                        <h3 class="d-inline me-auto">
+                                            ${card.price} tk
+                                        </h3>
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                            onclick="cartPage()"
+                                        >
+                                            Add Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                document
+                    .getElementsByClassName("filter-product")[0]
+                    .appendChild(cardDiv);
+                // dog's product card details end
+                }
+                
+                
+            });
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+}
+
+function cartPage() {
+    window.open("http://127.0.0.1:5500/client/cart-page.html", "_self");
+}
