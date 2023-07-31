@@ -110,7 +110,7 @@ async function fetchData() {
                 let id = card._id;
                 // dog's product card details start
                 let singleProduct = document.createElement("div");
-                console.log("DETAIL:",detail);
+                console.log("DETAIL:", detail);
                 singleProduct.innerHTML = `
           <div class="col">
             <div class="card">
@@ -157,7 +157,7 @@ async function fetchData() {
             </div>
           </div>
           `;
-          // document.getElementById ("btnsave").addEventListener ("click", resetEmotes, false);
+                // document.getElementById ("btnsave").addEventListener ("click", resetEmotes, false);
                 if (i < 4) {
                     categoryProducts.appendChild(singleProduct);
                 }
@@ -193,83 +193,40 @@ async function fetchData() {
     }
 }
 
-
-
 // Call the fetchData function to initiate the API calls and wait for them to finish
 await fetchData();
 console.log("Hm al pd:", homeAllProducts);
 document.getElementById("all-home-product").appendChild(homeAllProducts);
 
-// cat
-// axios
-//     .get("http://localhost:3000/api/products/categories/Cat")
-//     .then(function (response) {
-//         // handle success
-//         console.log("API RESPONSE:", response.data.data);
-//         let productDetail = response.data.data;
 
-//         productDetail.map((card, i) => {
-//             let id = card._id;
-//             // dog's product card details start
-//             let cardCatDiv = document.createElement("div");
-//             cardCatDiv.innerHTML = `
-//                     <div onclick="productDetail('${id}')" class="col">
-//                         <div class="card">
-//                             <!-- code in dogProducts.js file -->
-//                             <img
-//                                 src="${card.imageUrl}"
-//                                 class="card-img-top w-100 h-100"
-//                                 alt="..."
-//                             />
-//                             <div class="card-body">
-//                                 <h5
-//                                 class="card-title"
-//                                 style="
-//                                         height: 70px;
-//                                         overflow: hidden;
-//                                     "
-//                                 >${card.name}</h5>
-//                                 <p
-//                                     class="card-text"
-//                                     style="
-//                                         height: 190px;
-//                                         overflow: hidden;
-//                                     "
-//                                 >
-//                                     ${card.description}
-//                                 </p>
-//                                 <div
-//                                     class="cart-button-price-area d-flex flex-column flex-md-row align-content-center"
-//                                 >
-//                                     <h3 class="d-inline me-auto">
-//                                         ${card.price} tk
-//                                     </h3>
-//                                     <button
-//                                         type="button"
-//                                         class="btn btn-primary"
-//                                         id="cart-btn"
-//                                         onclick="cartPage()"
-//                                     >
-//                                         Add Cart
-//                                     </button>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     `;
-//             if (i < 4) {
-//                 document
-//                     .getElementsByClassName("card-cat-main")[0]
-//                     .appendChild(cardCatDiv);
-//             }
-//         });
-//     })
-//     .catch(function (error) {
-//         // handle error
-//         console.log(error);
-//     })
-//     .finally(function () {
-//         // always executed
-//     });
+axios
+    .get("http://localhost:3000/api/products/categories")
+    .then(function (response) {
+        // handle success
+        console.log("pppp", response.data.data);
+        let allCategories = response.data.data;
+
+        allCategories.map((category, i) => {
+            let itemDiv1 = document.createElement("li");
+            itemDiv1.innerHTML = `
+                <a
+                class="dropdown-item"
+                href="http://127.0.0.1:5500/client/product.html?name=${category.name}"
+                onclick="categoryPage()"
+                >
+                ${category.name} Product
+                </a>
+                    `;
+            document.getElementById("drop-down").appendChild(itemDiv1);
+        });
+    })
+
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    });
 
 
+function categoryPage() {
+    console.log("Product index:");
+}

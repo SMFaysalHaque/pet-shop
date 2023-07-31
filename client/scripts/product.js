@@ -1,9 +1,7 @@
-// import axios from 'axios';
-
-// const axios = require('axios');
-
+const categoryName = new URLSearchParams(window.location.search).get('name');
+console.log("gggg", categoryName);
 // Make a request for a user with a given ID
-axios.get("http://localhost:3000/api/products/categories/Dog")
+axios.get(`http://localhost:3000/api/products/categories/${categoryName}`)
     .then(function (response) {
         // handle success
         console.log("API RESPONSE:", response.data.data);
@@ -149,6 +147,10 @@ axios.get("http://localhost:3000/api/products/categories/Dog")
     .finally(function () {
         // always executed
     });
+
+    function filter(){
+        
+    }
 
     function cartPage(){
         window.open("http://127.0.0.1:5500/client/cart-page.html","_self")

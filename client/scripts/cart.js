@@ -1,15 +1,18 @@
 let cartList = JSON.parse(localStorage.getItem("cartList"));
+// cartList.splice(0, 1)
+// console.log("Cart 111:", cartList[i]);
 console.log("cartList:", cartList);
 const token = localStorage.getItem("userToken");
 
 let subtotal = 0;
 let total = 0;
 
-let cartBody = document.getElementById("cart-body")
+let cartBody = 
 
 cartList.map((item, i) => {
+    // console.log("Cart List Index:", cartList[i]);
     subtotal = parseFloat(item.price) + subtotal;
-
+    // cartList.splice(1, 1)
     let itemDiv1 = document.createElement("div");
     itemDiv1.innerHTML = `
             <!-- FFFFFF -->
@@ -59,7 +62,7 @@ cartList.map((item, i) => {
             </div>
             <!-- FFFFFF -->
                     `;
-    cartBody.appendChild(itemDiv1);
+                    document.getElementById("cart-body").appendChild(itemDiv1);
 });
 
 // showing subtotal:
@@ -150,5 +153,7 @@ function confirmOder() {
 }
 
 function deleteCart(i) {
-    cartBody[i].splice(i, 1);
+    console.log("Div Index:", cartList[i]);
+    // cartList.splice(i, 1);
+    
 }
