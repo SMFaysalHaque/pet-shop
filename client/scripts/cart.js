@@ -7,11 +7,10 @@ const token = localStorage.getItem("userToken");
 let subtotal = 0;
 let total = 0;
 
-let cartBody = 
-
 cartList.map((item, i) => {
     // console.log("Cart List Index:", cartList[i]);
-    subtotal = parseFloat(item.price) + subtotal;
+    subtotal = parseFloat(item.price) * parseFloat(item.qty) + subtotal;
+    
     // cartList.splice(1, 1)
     let itemDiv1 = document.createElement("div");
     itemDiv1.innerHTML = `
@@ -53,7 +52,6 @@ cartList.map((item, i) => {
                     <a
                         onclick="deleteCart(${i})"
                         class="btn btn-outline-danger m-1"
-                        href="./cart-page.html"
                         role="button"
                         >Delete</a
                     >
@@ -77,13 +75,17 @@ document.getElementById("total").innerHTML = total;
 function plus(i) {
     let quantity = document.getElementById(`quantity${i}`).innerHTML;
     let itemPrice = document.getElementById(`itemPrice${i}`).innerHTML;
+
     subtotal = parseFloat(itemPrice) + subtotal;
     document.getElementById("subCount").innerHTML = subtotal;
+
     total = subtotal + parseFloat(shipping);
     document.getElementById("total").innerHTML = total;
+
     quantity++;
     updateQuantity(i, quantity);
 }
+
 function minus(i) {
     let quantity = document.getElementById(`quantity${i}`).innerHTML;
     let itemPrice = document.getElementById(`itemPrice${i}`).innerHTML;
@@ -154,6 +156,8 @@ function confirmOder() {
 
 function deleteCart(i) {
     console.log("Div Index:", cartList[i]);
-    // cartList.splice(i, 1);
+    cartList.splice(i, 1);
+    console.log("Cart List", cartList);
+
     
 }
